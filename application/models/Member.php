@@ -17,8 +17,8 @@ class Member extends CI_Model{
             }
         }
         
-        if(array_key_exists("id",$params)){
-            $this->db->where('id',$params['id']);
+        if(array_key_exists("member_id",$params)){
+            $this->db->where('member_id',$params['member_id']);
             $query = $this->db->get();
             $result = $query->row_array();
         }else{

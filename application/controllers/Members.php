@@ -127,4 +127,34 @@ class Members extends CI_Controller {
         $this->load->view('member/admin/add', $data);
         $this->load->view('template/footer-main');
     }
+    
+    public function all(){
+        $memberData = $this->member->getRows();
+        //echo '<pre>';
+        //print_r($campusData);
+        //echo '</pre>';
+        $data['members'] = $memberData;
+    
+        $this->load->view('template/header-main');
+        $this->load->view('template/nav-top');
+        $this->load->view('template/nav-left');
+        $this->load->view('member/admin/all', $data);
+        $this->load->view('template/footer-main');
+    }
+    
+    public function view($id){
+        $member_id = $id;
+        $userData = array(
+            'member_id' =>  $id
+        );
+        
+        $memberData = $this->member->getRows($userData);
+        
+        $data['members']    = $memberData;
+        $this->load->view('template/header-main');
+        $this->load->view('template/nav-top');
+        $this->load->view('template/nav-left');
+        $this->load->view('member/admin/view', $data);
+        $this->load->view('template/footer-main');
+    }
 }
