@@ -47,7 +47,7 @@ class Members extends CI_Controller {
             $this->form_validation->set_rules('th-5pm', 'Thursday 5pm', '');
             
             
-            
+            $this->session->set_userdata('victory_group_no', strip_tags($this->input->post('number_victory_groups')));
             //$this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check');
             $th_5pm = strip_tags($this->input->post('th-5pm'));
             $th_7pm = strip_tags($this->input->post('th-7pm'));

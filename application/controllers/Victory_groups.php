@@ -50,6 +50,21 @@ class Victory_groups extends CI_Controller {
                 'leadership_113'                    =>  strip_tags($this->input->post('leadership_113')),
                 'do_you_have_intern'                =>  strip_tags($this->input->post('do_you_have_intern')),
                 );
+            
+            $no_of_intern = strip_tags($this->input->post('do_you_have_intern'));
+            $insert = $this->victory_group->insert($userData);
+            
+            if($insert){
+                $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
+                if($no_of_intern>0){
+                    redirect(base_url('interns/add/'.$insert));
+                }else{
+                    redirect(base_url('members/index'));
+                }
+                    
+            }else{
+                $data['error_msg'] = 'Some problems occured, please try again.';
+            }
         }
     }
 }
