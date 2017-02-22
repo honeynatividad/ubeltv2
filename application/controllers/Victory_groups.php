@@ -29,5 +29,27 @@ class Victory_groups extends CI_Controller {
         $this->load->view('victory_group/admin/add', $data);
         $this->load->view('template/footer-main');
         
+        
+        $data = array();
+        $userData = array();
+        if($this->input->post('memberSubmit')){
+            $userData = array(
+                'campus'                            =>  strip_tags($this->input->post('campus')),
+                'when_jumpstart'                    =>  strip_tags($this->input->post('when_jumpstart')),
+                'how_many_times'                    =>  strip_tags($this->input->post('how_many_times')),
+                'demographic'                       =>  strip_tags($this->input->post('demographic')),
+                'number_of_victory_group_member'    =>  strip_tags($this->input->post('number_victory_group_member')),
+                'schedule'                          =>  strip_tags($this->input->post('schedule')),
+                'one_2_one'                         =>  strip_tags($this->input->post('one_2_one')),
+                'victory_weekend'                   =>  strip_tags($this->input->post('victory_weekend')),
+                'water_baptism'                     =>  strip_tags($this->input->post('water_baptism')),
+                'making_disciples'                  =>  strip_tags($this->input->post('making_disciples')),
+                'church_community'                  =>  strip_tags($this->input->post('church_community')),
+                'foundation_class'                  =>  strip_tags($this->input->post('foundation_class')),
+                'empowering_leaders'                =>  strip_tags($this->input->post('empowering_leaders')),
+                'leadership_113'                    =>  strip_tags($this->input->post('leadership_113')),
+                'do_you_have_intern'                =>  strip_tags($this->input->post('do_you_have_intern')),
+                );
+        }
     }
 }

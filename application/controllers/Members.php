@@ -48,7 +48,7 @@ class Members extends CI_Controller {
             
             
             
-            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check');
+            //$this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check');
             $th_5pm = strip_tags($this->input->post('th-5pm'));
             $th_7pm = strip_tags($this->input->post('th-7pm'));
             $f_3pm = strip_tags($this->input->post('f-3pm'));

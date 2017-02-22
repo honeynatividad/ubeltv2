@@ -38,7 +38,7 @@
                                 <div class="form-group ">
                                     <label for="cname" class="control-label col-lg-2">When did you jumpstart your victory group <span class="required">*</span></label>
                                     <div class="col-lg-10">
-                                        <select class="form-control input-lg m-bot15" name="campus">
+                                        <select class="form-control input-lg m-bot15" name="when_jumpstart">
                                             <option value=""></option>
                                             <option value="Before 2016">Before 2016</option>
                                             <option value="January 2016">January 2016</option>
