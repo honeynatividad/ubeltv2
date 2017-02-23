@@ -50,6 +50,135 @@
                                         
                                     </div>
                                 </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Year Level <span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control input-lg m-bot15" name="year_level">                                            
+                                            <option value=""></option>
+                                            <option value="Junior HS">Junior HS(Grade 7-10)</option>
+                                            <option value="Senior HS">Senior HS(Grade 11-12)</option>
+                                            <option value="First year">First Year</option>
+                                            <option value="Second Year">Second Year</option>
+                                            <option value="Third Year">Third Year</option>
+                                            <option value="Fourth Year">Fourth Year</option>
+                                            <option value="Fifth Year">Fifth Year</option>
+                                            <option value="YP Volunteer">YP Volunteer</option>
+                                            <option value="Staff">Staff</option>
+                                            <option value="Other">Other</option>
+                                                                           
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Graduating <span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control input-lg m-bot15" name="graduating">                                            
+                                            <option value=""></option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                            <option value="Not applicable">Not Applicable if YP or Staff</option>
+                                            
+                                                                           
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">One 2 One<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="one_2_one">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Victory Weekend<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="victory_weekend">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Water Baptism<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="water_baptism">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Making Disciples<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="making_disciples">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Church Community<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="churc_community">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Foundation Class<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="foundation_class">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Empowering Leaders<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="empowering_leaders">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Do you have another intern? <span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control input-lg m-bot15" name="do_you_have_another_intern">
+                                            <option value=""></option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </form>
                     </div>
                 </section>
