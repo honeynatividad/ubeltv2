@@ -34,6 +34,7 @@ class Victory_groups extends CI_Controller {
         $userData = array();
         if($this->input->post('memberSubmit')){
             $userData = array(
+                'member_id'                         =>  strip_tags($this->input->post('member_id')),
                 'campus'                            =>  strip_tags($this->input->post('campus')),
                 'when_jumpstart'                    =>  strip_tags($this->input->post('when_jumpstart')),
                 'how_many_times'                    =>  strip_tags($this->input->post('how_many_times')),
@@ -48,16 +49,19 @@ class Victory_groups extends CI_Controller {
                 'foundation_class'                  =>  strip_tags($this->input->post('foundation_class')),
                 'empowering_leaders'                =>  strip_tags($this->input->post('empowering_leaders')),
                 'leadership_113'                    =>  strip_tags($this->input->post('leadership_113')),
-                'do_you_have_intern'                =>  strip_tags($this->input->post('do_you_have_intern')),
+                'do_you_have_intern'                =>  strip_tags($this->input->post('intern')),
                 );
             
-            $no_of_intern = strip_tags($this->input->post('do_you_have_intern'));
+            $no_of_intern = strip_tags($this->input->post('intern'));
+            $member_id = strip_tags($this->input->post('member_id'));
+            
+            
             $insert = $this->victory_group->insert($userData);
             
             if($insert){
                 $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
-                if($no_of_intern>0){
-                    redirect(base_url('interns/add/'.$insert));
+                if($no_of_intern==1){
+                    redirect(base_url('interns/add/'.$member_id.'/'.$insert));
                 }else{
                     redirect(base_url('members/index'));
                 }

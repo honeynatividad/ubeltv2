@@ -22,6 +22,7 @@
                             <form class="form-validate form-horizontal" id="feedback_form" action="" method="post">
                                 <input type="hidden" name="member_id" value="<?php echo $member_id ?>">
                                 <input type="hidden" name="victory_group_id" value="<?php echo $victory_group_id ?>">
+                              
                                 
                                 <div class="form-group ">
                                     <label for="cname" class="control-label col-lg-2">Full Name <span class="required">*</span></label>
@@ -138,7 +139,7 @@
                                     <div class="col-lg-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="1" name="churc_community">
+                                                <input type="checkbox" value="1" name="church_community">
                                                   
                                             </label>
                                         </div>
@@ -179,6 +180,15 @@
                                         </select>
                                     </div>
                                 </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <input type="submit" id="submit" name="memberSubmit" class="btn btn-primary" value="SAVE"/>
+                                              
+                                        <button class="btn btn-default" type="button">Cancel</button>
+                                    </div>
+                                </div>
+                                
                             </form>
                     </div>
                 </section>
