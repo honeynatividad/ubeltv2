@@ -26,7 +26,7 @@
             <input type="submit" name="loginSubmit" class="btn btn-primary btn-lg btn-block" value="Submit"/>
             
             
-            <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button>
+            <a href="<?php echo base_url('members/add') ?>" class="btn btn-info btn-lg btn-block" type="submit">Signup</a>
         </div>
       </form>
     

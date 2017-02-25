@@ -4,7 +4,7 @@
             </div>
 
             <!--logo start-->
-            <a href="index.html" class="logo">Ubelt</a>
+            <a href="index.html" class="logo">ENCampus U-Belt Database</a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -27,7 +27,7 @@
                     <li id="task_notificatoin_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="icon-task-l"></i>
-                            <span class="badge bg-important">6</span>
+                            <span class="badge bg-important">0</span>
                         </a>
                         <ul class="dropdown-menu extended tasks-bar">
                             <div class="notify-arrow notify-arrow-blue"></div>
@@ -42,12 +42,12 @@
                     <li id="mail_notificatoin_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="icon-envelope-l"></i>
-                            <span class="badge bg-important">5</span>
+                            <span class="badge bg-important">0</span>
                         </a>
                         <ul class="dropdown-menu extended inbox">
                             <div class="notify-arrow notify-arrow-blue"></div>
                             <li>
-                                <p class="blue">You have 5 new messages</p>
+                                <p class="blue">You have 0 new messages</p>
                             </li>
                             
                             <li>
@@ -61,12 +61,12 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                             <i class="icon-bell-l"></i>
-                            <span class="badge bg-important">7</span>
+                            <span class="badge bg-important">0</span>
                         </a>
                         <ul class="dropdown-menu extended notification">
                             <div class="notify-arrow notify-arrow-blue"></div>
                             <li>
-                                <p class="blue">You have 4 new notifications</p>
+                                <p class="blue">You have 0 new notifications</p>
                             </li>
                                                     
                             <li>

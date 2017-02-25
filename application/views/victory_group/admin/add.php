@@ -10,7 +10,16 @@
 		</ol>
             </div>
 	</div>
-              
+        <div class="row">
+            <div class="col-lg-12">
+                <?php if($success_msg): ?>
+                <div class="alert alert-success fade in">
+                    <p><?php echo $success_msg ?></p>
+                </div>
+                
+                <?php endif; ?>
+            </div>
+        </div>      
         <div class="row">
             <div class="col-lg-12">
                 <section class="panel">
@@ -106,10 +115,32 @@
                                 </div>
                                 
                                 <div class="form-group ">
+                                    <label for="cname" class="control-label col-lg-2">How many members were connected from Outreach Month <span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control input-lg m-bot15" name="member_from_outreach">                                            
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
                                     <label for="cname" class="control-label col-lg-2">Schedule <span class="required">*</span></label>
+                                    
                                     <div class="col-lg-10">
                                         <input class="form-control" id="cname" name="schedule" minlength="5" type="text" required />
                                     </div>
+                                    <label for="cname" class="control-label col-lg-2">Day / Time / Location (e.g Monday / 3pm / KFC)<span class="required">*</span></label>
+                                    
                                 </div>
                                 
                                 <div class="form-group ">

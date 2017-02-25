@@ -1,7 +1,7 @@
 <!DOCTYPE html>  
 <html>  
 <head>  
-    <title>Basic Site</title>  
+    <title>ENCampus U-Belt Database</title>  
     <link rel="stylesheet" href="<?php echo base_url("resources/css/bootstrap.css"); ?>" />
     <link href=<?php echo base_url("resources/css/bootstrap.min.css"); ?>" rel="stylesheet">
     <!-- bootstrap theme -->

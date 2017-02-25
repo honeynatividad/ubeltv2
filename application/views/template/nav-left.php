@@ -20,6 +20,8 @@
                     
                 </ul>
             </li>  
+            <?php if($user_data): ?>
+            
             <li class="sub-menu">
                 <a href="javascript:;" class="">
                     <i class="icon_document_alt"></i>
@@ -43,7 +45,7 @@
                 </ul>
             </li>       
             
-
+            <?php endif; ?>
         </ul>
               <!-- sidebar menu end-->
     </div>

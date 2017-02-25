@@ -13,7 +13,8 @@ class Interns extends CI_Controller {
         $this->load->model('victory_group');
         $this->load->helper('form');
         $this->load->library('form_validation');
-		
+        $victory_group = $this->session->userdata('victory_group_no');
+	
     }
     
     public function add($member_id, $victory_group_id){
@@ -62,8 +63,16 @@ class Interns extends CI_Controller {
                 $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
                 if($another_intern=="Yes"){                    
                     redirect(base_url('interns/add/'.$member_id."/".$victory_group_id));
-                }else{
-                    redirect(base_url('members/index'));
+                }else{                    
+                    $victory_group = $this->session->userdata('victory_group_no');
+                    if($victory_group!=1){
+                        $victory_group = $victory_group - 1;
+                        $this->session->set_userdata('victory_group_no', $victory_group);
+                        redirect(base_url('victory_groups/add/'.$member_id));
+                    }else{
+                        redirect(base_url('members/add'));
+                    }
+                    
                 }
                     
             }else{

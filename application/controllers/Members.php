@@ -10,9 +10,11 @@ class Members extends CI_Controller {
 	$this->load->helper(array('url'));
 	$this->load->model('member');
         $this->load->model('campus');
+        $this->load->model('user');
         $this->load->helper('form');
         $this->load->library('form_validation');
-		
+	$this->user_data = $this->session->userdata('userId');
+        
     }
     
     public function index()  
@@ -27,6 +29,7 @@ class Members extends CI_Controller {
     public function add(){
         $data = array();
         $userData = array();
+        $data['success_msg'] = $this->session->userdata('success_msg');
         if($this->input->post('memberSubmit')){
             //echo '<pre>';
             //print_r("TEST");
@@ -62,12 +65,13 @@ class Members extends CI_Controller {
             $ministry_communication = strip_tags($this->input->post('ministry-communication'));
             $ministry_kids = strip_tags($this->input->post('ministry-kids'));
             $ministry_music = strip_tags($this->input->post('ministry-music'));
+            $ministry_prayer = strip_tags($this->input->post('ministry-prayer'));
             $ministry_production = strip_tags($this->input->post('ministry-production'));
             $ministry_technical = strip_tags($this->input->post('ministry-technical'));
             $ministry_ushering = strip_tags($this->input->post('ministry-ushering'));
             $ministry_none  = strip_tags($this->input->post('ministry-none'));
             
-            $ministry_involvement = $ministry_admin.",".$ministry_communication.",".$ministry_kids.",".$ministry_music.",".$ministry_production.",".$ministry_technical.",".$ministry_ushering.",".$ministry_none;
+            $ministry_involvement = $ministry_admin.",".$ministry_communication.",".$ministry_kids.",".$ministry_music.",".$ministry_prayer.",".$ministry_production.",".$ministry_technical.",".$ministry_ushering.",".$ministry_none;
             
             $number_of_victory_groups = strip_tags($this->input->post('number_victory_groups'));
             $userData = array(
@@ -101,13 +105,31 @@ class Members extends CI_Controller {
             //print_r($userData);
             //echo '</pre>';
             //if($this->form_validation->run() == true){
+          
+                $user = array(
+                    'name' => strip_tags($this->input->post('first_name')),
+                    'email' => strip_tags($this->input->post('email_address')),
+                    'password' => md5($this->input->post('password')),       
+                    'gender' => strip_tags($this->input->post('gender')),
+                    
+                );
+
+                
+                $insertData = $this->user->insert($user);
+                if($insertData){
+                    $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');                        
+                }else{
+                    $data['error_msg'] = 'Some problems occured, please try again.';
+                }
+             
+                
                 $insert = $this->member->insert($userData);
                 if($insert){
-                    $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
+                    $this->session->set_userdata('success_msg', 'Your registration was successfully. You may now be able to login using your email address and password you have provided.');
                     if($number_of_victory_groups>0){
                         redirect(base_url('victory_groups/add/'.$insert));
                     }else{
-                        redirect(base_url('members/index'));
+                        redirect(base_url('members/add'));
                     }
                     
                 }else{
@@ -115,6 +137,8 @@ class Members extends CI_Controller {
                 }
             //}
         }
+        $data['user_data'] = $this->user_data;
+        
         $campusData = $this->campus->getRows();
         //echo '<pre>';
         //print_r($campusData);
@@ -123,7 +147,7 @@ class Members extends CI_Controller {
         //load the view
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
-        $this->load->view('template/nav-left');
+        $this->load->view('template/nav-left',$data);
         $this->load->view('member/admin/add', $data);
         $this->load->view('template/footer-main');
     }
@@ -134,10 +158,14 @@ class Members extends CI_Controller {
         //print_r($campusData);
         //echo '</pre>';
         $data['members'] = $memberData;
-    
+        $session_data = $this->session->userdata('logged_in');
+        if(!$session_data){
+            redirect(base_url("users/login"));
+        }
+        $data['user_data'] = $this->user_data;
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
-        $this->load->view('template/nav-left');
+        $this->load->view('template/nav-left',$data);
         $this->load->view('member/admin/all', $data);
         $this->load->view('template/footer-main');
     }

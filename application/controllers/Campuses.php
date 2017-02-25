@@ -15,12 +15,18 @@ class Campuses extends CI_Controller {
 	$this->load->model('campus');
         $this->load->helper('form');
         $this->load->library('form_validation');
+        $this->user_data = $this->session->userdata('userId');
 		
     }
     
     public function add(){
         $data = array();
         $campusData = array();
+        $session_data = $this->session->userdata('logged_in');
+        if(!$session_data){
+            redirect(base_url("users/login"));
+        }
+        $data['user_data'] = $this->user_data;
         if($this->input->post('campusSubmit')){
             $this->form_validation->set_rules('code', 'Code', 'required');
             $this->form_validation->set_rules('name', 'Name', 'required');
@@ -45,7 +51,7 @@ class Campuses extends CI_Controller {
         //load the view
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
-        $this->load->view('template/nav-left');
+        $this->load->view('template/nav-left',$data);
         $this->load->view('campus/add', $data);
         $this->load->view('template/footer-main');
     }

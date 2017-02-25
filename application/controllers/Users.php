@@ -20,22 +20,25 @@ class Users extends CI_Controller {
 		$this->load->model('user');
                 $this->load->helper('form');
                 $this->load->library('form_validation');
+                $this->user_data = $this->session->userdata('userId');
 		
 	}
 	
 	
 	public function account(){
+            $data['user_data'] = $this->user_data;
         $data = array();
         if($this->session->userdata('isUserLoggedIn')){
+            $data['user_data'] = $this->user_data;
             $data['user'] = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
             //load the view
             $this->load->view('template/header-main');
             $this->load->view('template/nav-top');
-            $this->load->view('template/nav-left');
+            $this->load->view('template/nav-left',$data);
             $this->load->view('users/index', $data);
             $this->load->view('template/footer-main');
         }else{
-            redirect('users/login');
+            redirect(base_url('users/login'));
         }
     }
     
@@ -64,9 +67,10 @@ class Users extends CI_Controller {
                 );
                 $checkLogin = $this->user->getRows($con);
                 if($checkLogin){
+                    $this->session->set_userdata('logged_in',TRUE);
                     $this->session->set_userdata('isUserLoggedIn',TRUE);
                     $this->session->set_userdata('userId',$checkLogin['id']);
-                    redirect('users/account/');
+                    redirect(base_url('users/account/'));
                 }else{
                     $data['error_msg'] = 'Wrong email or password, please try again.';
                 }
