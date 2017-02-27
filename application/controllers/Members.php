@@ -159,10 +159,15 @@ class Members extends CI_Controller {
         }
         
         $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
-        
+        $data['members'] = array();
         if($users['name']=="admin"){
-            $memberData = $this->member->getRows();        
-            $data['members'] = $memberData;
+            $memberData = $this->member->getRows();      
+            if(!$memberData){
+                $data['members'] = array();
+            }else{
+                $data['members'] = $memberData;
+            }
+            
         }else{
             $memberData = array($this->member->getRows(array('member_id'=>$users['member_id'])));
             $data['members'] = $memberData;

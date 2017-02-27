@@ -29,8 +29,8 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="<?php echo base_url("/campus/add");?>">Add</a></li>                          
-                    <li><a class="" href="<?php echo base_url("/campus/all");?>">List</a></li>
+                    <li><a class="" href="<?php echo base_url("/campuses/add");?>">Add</a></li>                          
+                    <li><a class="" href="<?php echo base_url("/campuses/all");?>">List</a></li>
                 </ul>
             </li>       
             <li class="sub-menu">

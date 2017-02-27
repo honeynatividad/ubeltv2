@@ -35,30 +35,24 @@
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">First Name <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="first_name" minlength="4" type="text" required />
+                                            <input class="form-control" id="cname" name="first_name" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Middle Name <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="middle_name" minlength="4" type="text" required />
+                                            <input class="form-control" id="cname" name="middle_name" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Last Name <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="last_name" minlength="4" type="text" required />
+                                            <input class="form-control" id="cname" name="last_name" minlength="3" type="text" required />
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="cname" class="control-label col-lg-2">Password <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input type="password" class="form-control" name="password" placeholder="Password" required="">
-                                            <?php echo form_error('password','<span class="help-block">','</span>'); ?>
-                                        </div>
-                                    </div>
+                                    
 
                                     <div class="form-group">
                                         <label for="cname" class="control-label col-lg-2">Gender <span class="required">*</span></label>
@@ -89,14 +83,14 @@
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Contact Number <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="contact_number" minlength="4" type="text" required />
+                                            <input class="form-control" id="cname" name="contact_number" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Birthday <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="yyyy/mm/dd" name="birthday" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="yyyy-mm-dd" name="birthday" minlength="3" type="text" required />
                                         </div>
                                         
                                     </div>
@@ -104,14 +98,21 @@
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Email Address <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="email_address" minlength="4" type="text" required />
+                                            <input class="form-control" id="cname" name="email_address" minlength="3" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cname" class="control-label col-lg-2">Password <span class="required">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input type="password" class="form-control" name="password" placeholder="Password" required="">
+                                            <?php echo form_error('password','<span class="help-block">','</span>'); ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Facebook Name <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="facebook_name" minlength="4" type="text" required />
+                                            <input class="form-control" id="cname" name="facebook_name" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
@@ -288,63 +289,63 @@
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Name of Your Leadership Group <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="name_leader" minlength="4" type="text" required />
+                                            <input class="form-control" id="cname" name="name_leader" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">One 2 one <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="one_2_one" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="one_2_one" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Victory Weekend <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" id="cname" name="victory_weekend" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" id="cname" name="victory_weekend" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Water Baptism <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="water_baptism" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="water_baptism" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Making Disciples <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="making_disciples" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="making_disciples" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Church Community <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="church_community" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="church_community" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Foundation Class <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="foundation_class" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="foundation_class" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Empowering Leaders <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="empowering_leaders" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="empowering_leaders" minlength="3" type="text" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cemail" class="control-label col-lg-2">Leadership 113 <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="leadership_113" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="leadership_113" minlength="3" type="text" required />
                                         </div>
                                     </div>
 

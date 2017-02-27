@@ -13,6 +13,7 @@ class Campuses extends CI_Controller {
 	$this->load->library(array('session'));
 	$this->load->helper(array('url'));
 	$this->load->model('campus');
+        $this->load->model('user');
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->user_data = $this->session->userdata('userId');
@@ -48,6 +49,9 @@ class Campuses extends CI_Controller {
             }
         }
         $data['camnpus'] = $campusData;
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['isAdmin']    = $users['name'];
+        $data['user_data'] = $this->user_data;
         //load the view
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
