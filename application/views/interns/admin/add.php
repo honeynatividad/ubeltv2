@@ -22,7 +22,9 @@
                             <form class="form-validate form-horizontal" id="feedback_form" action="" method="post">
                                 <input type="hidden" name="member_id" value="<?php echo $member_id ?>">
                                 <input type="hidden" name="victory_group_id" value="<?php echo $victory_group_id ?>">
-                              
+                                <div class="col-lg-12">
+                                    <p><i>Must be DONE with Victory Weekend, co-leading with Victory Group Leader and has F.A.I.T.H</i></p>
+                                </div>
                                 
                                 <div class="form-group ">
                                     <label for="cname" class="control-label col-lg-2">Full Name <span class="required">*</span></label>

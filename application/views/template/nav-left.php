@@ -20,7 +20,7 @@
                     
                 </ul>
             </li>  
-            <?php if($user_data): ?>
+            <?php if($isAdmin=="admin"): ?>
             
             <li class="sub-menu">
                 <a href="javascript:;" class="">

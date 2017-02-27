@@ -11,6 +11,7 @@ class Members extends CI_Controller {
 	$this->load->model('member');
         $this->load->model('campus');
         $this->load->model('user');
+        $this->load->model('victory_group');
         $this->load->helper('form');
         $this->load->library('form_validation');
 	$this->user_data = $this->session->userdata('userId');
@@ -30,6 +31,8 @@ class Members extends CI_Controller {
         $data = array();
         $userData = array();
         $data['success_msg'] = $this->session->userdata('success_msg');
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['isAdmin']    = $users['name'];
         if($this->input->post('memberSubmit')){
             //echo '<pre>';
             //print_r("TEST");
@@ -106,25 +109,21 @@ class Members extends CI_Controller {
             //echo '</pre>';
             //if($this->form_validation->run() == true){
           
-                $user = array(
-                    'name' => strip_tags($this->input->post('first_name')),
-                    'email' => strip_tags($this->input->post('email_address')),
-                    'password' => md5($this->input->post('password')),       
-                    'gender' => strip_tags($this->input->post('gender')),
-                    
-                );
-
                 
-                $insertData = $this->user->insert($user);
-                if($insertData){
-                    $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');                        
-                }else{
-                    $data['error_msg'] = 'Some problems occured, please try again.';
-                }
-             
                 
                 $insert = $this->member->insert($userData);
                 if($insert){
+                    $user = array(
+                        'member_id' => $insert,
+                        'name' => strip_tags($this->input->post('first_name')),
+                        'email' => strip_tags($this->input->post('email_address')),
+                        'password' => md5($this->input->post('password')),       
+                        'gender' => strip_tags($this->input->post('gender')),
+
+                    );
+
+                    $insertData = $this->user->insert($user);
+                    
                     $this->session->set_userdata('success_msg', 'Your registration was successfully. You may now be able to login using your email address and password you have provided.');
                     if($number_of_victory_groups>0){
                         redirect(base_url('victory_groups/add/'.$insert));
@@ -153,16 +152,29 @@ class Members extends CI_Controller {
     }
     
     public function all(){
-        $memberData = $this->member->getRows();
-        //echo '<pre>';
-        //print_r($campusData);
-        //echo '</pre>';
-        $data['members'] = $memberData;
+        
         $session_data = $this->session->userdata('logged_in');
         if(!$session_data){
             redirect(base_url("users/login"));
         }
+        
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        
+        if($users['name']=="admin"){
+            $memberData = $this->member->getRows();        
+            $data['members'] = $memberData;
+        }else{
+            $memberData = array($this->member->getRows(array('member_id'=>$users['member_id'])));
+            $data['members'] = $memberData;
+             
+        }
+        //echo '<pre>';
+        //    print_r($memberData);
+        //echo '</pre>';
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['isAdmin']    = $users['name'];
         $data['user_data'] = $this->user_data;
+        
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
         $this->load->view('template/nav-left',$data);
@@ -177,11 +189,21 @@ class Members extends CI_Controller {
         );
         
         $memberData = $this->member->getRows($userData);
-        
+        $data['user_data'] = $this->user_data;
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['isAdmin']    = $users['name'];
+        //print_r($data['user_data']);
         $data['members']    = $memberData;
+        //if($users['name']=="admin"){
+            
+        //}
+        //for victory group
+        $victory_groups = $this->victory_group->getRows(array('member_id'=>$member_id));
+        $data['victory_groups'] = $victory_groups;
+        
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
-        $this->load->view('template/nav-left');
+        $this->load->view('template/nav-left',$data);
         $this->load->view('member/admin/view', $data);
         $this->load->view('template/footer-main');
     }

@@ -28,12 +28,7 @@
                                           Victory Group Profile
                                 </a>
                             </li>
-                            <li class="">
-                                <a data-toggle="tab" href="#contact-2">
-                                  
-                                          Intern Profile
-                                </a>
-                            </li>
+                            
                         </ul>
                     </header>
                     <div class="panel-body">
@@ -141,10 +136,88 @@
                             </div>
                             <div id="about-2" class="tab-pane">
                                 
-                            </div>
-                            <div id="contact-2" class="tab-pane ">
+                                <?php foreach($victory_groups as $victory_group): ?>
+                                <div class="col-lg-5">
+                                    <table class="table">
+                                    
+                                        <tbody>
+                                            <tr>
+                                                <td>Campus</td>
+                                                <td><?php echo $victory_group['campus'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>When did you jumpstart your Victory Group?</td>
+                                                <td><?php echo $victory_group['when_jumpstart'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>How many times did you meet for the past 3 months?</td>
+                                                <td><?php echo $victory_group['how_many_times'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>How many members were connected from Outreach Month</td>
+                                                <td><?php echo $victory_group['member_from_outreach'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Demographics</td>
+                                                <td><?php echo $victory_group['demographic'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Number of Victory Group Members</td>
+                                                <td><?php echo $victory_group['number_of_victory_group_member'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Schedule</td>
+                                                <td><?php echo $victory_group['schedule'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Victory Group Members Discipleship Journey</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>One 2 One</td>
+                                                <td><?php echo $victory_group['one_2_one'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Victory Weekend</td>
+                                                <td><?php echo $victory_group['victory_weekend'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Water Baptism</td>
+                                                <td><?php echo $victory_group['water_baptism'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Making Disciples</td>
+                                                <td><?php echo $victory_group['making_disciples'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Church Community</td>
+                                                <td><?php echo $victory_group['church_community'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Foundation Class</td>
+                                                <td><?php echo $victory_group['foundation_class'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Empowering Leaders</td>
+                                                <td><?php echo $victory_group['empowering_leaders'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Leadership 113</td>
+                                                <td><?php echo $victory_group['leadership_113'] ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-lg-5">
+                                    <table class="table">
+                                        <tbody>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
                                 
+                                <?php endforeach; ?>
                             </div>
+                           
                         </div>
                      </div>
                 </section>

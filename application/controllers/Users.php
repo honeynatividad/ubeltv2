@@ -27,11 +27,13 @@ class Users extends CI_Controller {
 	
 	public function account(){
             $data['user_data'] = $this->user_data;
-        $data = array();
+            $data = array();
         if($this->session->userdata('isUserLoggedIn')){
             $data['user_data'] = $this->user_data;
             $data['user'] = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
             //load the view
+            $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+            $data['isAdmin']    = $users['name'];
             $this->load->view('template/header-main');
             $this->load->view('template/nav-top');
             $this->load->view('template/nav-left',$data);

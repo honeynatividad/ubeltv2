@@ -99,7 +99,7 @@
                                 <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                             </li>
                             <li>
-                                <a href="#"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="<?php echo base_url('users/logout'); ?>"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
                             <li>
                                 <a href="#"><i class="icon_key_alt"></i> Documentation</a>

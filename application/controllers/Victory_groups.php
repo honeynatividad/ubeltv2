@@ -9,6 +9,7 @@ class Victory_groups extends CI_Controller {
 	$this->load->helper(array('url'));
 	$this->load->model('member');
         $this->load->model('campus');
+        $this->load->model('user');
         $this->load->model('victory_group');
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -19,6 +20,8 @@ class Victory_groups extends CI_Controller {
     public function add($member_id){
         $data['member_id'] = $member_id;
         $campusData = $this->campus->getRows();
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['isAdmin']    = $users['name'];
         //echo '<pre>';
         //print_r($campusData);
         //echo '</pre>';

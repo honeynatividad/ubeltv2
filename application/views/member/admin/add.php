@@ -96,7 +96,7 @@
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Birthday <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/dd/yyyy" name="birthday" minlength="4" type="text" required />
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="yyyy/mm/dd" name="birthday" minlength="4" type="text" required />
                                         </div>
                                         
                                     </div>
@@ -388,10 +388,10 @@
                                                                         
                                       
                                       
-                                <p>If you have victory group you are leading, this will be redirected to victory group information form</p>
+                                
                                   </form>
                               </div>
-
+                        <p><i>If you have victory group you are leading, this will be redirected to victory group information form</i></p>
                           </div>
                       </section>
                   </div>
