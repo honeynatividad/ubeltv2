@@ -49,25 +49,8 @@
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">When did you jumpstart your victory group <span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <select class="form-control input-lg m-bot15" name="when_jumpstart">
-                                                <option value=""></option>
-                                                <option value="Before 2016">Before 2016</option>
-                                                <option value="January 2016">January 2016</option>
-                                                <option value="February 2016">February 2016</option>
-                                                <option value="March 2016">March 2016</option>
-                                                <option value="April 2016">April 2016</option>
-                                                <option value="May 2016">May 2016</option>
-                                                <option value="June 2016">June 2016</option>
-                                                <option value="July 2016">July 2016</option>
-                                                <option value="August 2016">August 2016</option>
-                                                <option value="September 2016">September 2016</option>
-                                                <option value="October 2016">October 2016</option>
-                                                <option value="November 2016">November 2016</option>
-                                                <option value="December 2016">December 2016</option>
-                                                <option value="January 2017">January 2017</option>
-
-                                            </select>
-
+                                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="when_jumpstart" minlength="3" type="text" required />
+                                            
                                         </div>
                                     </div>
 
@@ -89,8 +72,9 @@
                                         <div class="col-lg-8">
                                             <select class="form-control input-lg m-bot15" name="demographic">
                                                 <option value=""></option>
+                                                <option value="High School">High School</option>
                                                 <option value="Junior High (Grade 7-10)">Junior High (Grade 7-10)</option>
-                                                <option value="Senior High (Grade 11-12)">Senior High (Grade 11-12)</option>
+                                                <option value="Senior High (Grade 11-12)">Senior High (Grade 11-12)</option>                                                
                                                 <option value="College">College</option>
                                                 <option value="Mixed">Mixed</option>
                                             </select>
@@ -98,7 +82,7 @@
                                     </div>
 
                                     <div class="form-group ">
-                                        <label for="cname" class="control-label col-lg-4">Number of Victory Group Member <span class="required">*</span></label>
+                                        <label for="cname" class="control-label col-lg-4">Number of Victory Group Members <span class="required">*</span></label>
                                         <div class="col-lg-8">
                                             <select class="form-control input-lg m-bot15" name="number_victory_group_member">                                            
                                                 <option value="1">1</option>
@@ -213,9 +197,10 @@
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">Do you have an intern?<span class="required">*</span></label>
                                         <div class="col-lg-8">
-
-                                            <input class="form-control" type="radio" name="intern" value="1" <?php echo  set_radio('myradio', '1', TRUE); ?> />YEs
-                                            <input class="form-control" type="radio" name="intern" value="2" <?php echo  set_radio('myradio', '2'); ?> />No
+                                            
+                                            <input type="radio" name="intern" value="1" <?php echo  set_radio('myradio', '1', TRUE); ?> />Yes
+                                            <br>
+                                            <input type="radio" name="intern" value="2" <?php echo  set_radio('myradio', '2'); ?> />No
                                         </div>
                                     </div>
 

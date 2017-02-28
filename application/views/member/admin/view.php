@@ -208,11 +208,128 @@
                                     </table>
                                 </div>
                                 <div class="col-lg-5">
-                                    <table class="table">
+                                    
+                                    <?php foreach($interns as $intern): ?>
+                                    <?php if($intern['victory_group_id']==$victory_group['victory_group_id']): ?>
+                                    <table class="table-inbox border-content">
                                         <tbody>
-                                            
+                                            <tr>
+                                                <td>Intern Name</td>
+                                                <td><?php echo $intern['intern_name'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Contact Number</td>
+                                                <td><?php echo $intern['contact_number'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Campus</td>
+                                                <td><?php echo $intern['campus'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Year Level</td>
+                                                <td><?php echo $intern['year_level'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Graduating</td>
+                                                <td><?php echo $intern['graduating'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>One 2 One</td>
+                                                <td>
+                                                    <?php 
+                                                    if($intern['one_2_one']==1){
+                                                        echo 'Yes';
+                                                    }else{
+                                                        echo 'No';
+                                                    }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Victory Weekend</td>
+                                                <td>
+                                                    <?php 
+                                                    if($intern['victory_weekend']==1){
+                                                        echo 'Yes';
+                                                    }else{
+                                                        echo 'No';
+                                                    }?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Water Baptism</td>
+                                                <td>
+                                                    <?php 
+                                                    if($intern['water_baptism']==1){
+                                                        echo 'Yes';
+                                                    }else{
+                                                        echo 'No';
+                                                    }                                                    
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Making Disciples</td>
+                                                <td>
+                                                    <?php
+                                                    if($intern['making_disciples']==1){
+                                                        echo 'Yes';
+                                                    }else{
+                                                        echo 'No';
+                                                    } ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Church Community</td>
+                                                <td>
+                                                    <?php
+                                                    if($intern['church_community']==1){
+                                                        echo 'Yes';
+                                                    }else{
+                                                        echo 'No';
+                                                    } ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Foundation Class</td>
+                                                <td>
+                                                    <?php
+                                                    if($intern['foundation_class']==1){
+                                                        echo 'Yes';
+                                                    }else{
+                                                        echo 'No';
+                                                    }
+                                                     ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Empowering Leaders</td>
+                                                <td>
+                                                    <?php 
+                                                    if($intern['empowering_leaders']==1){
+                                                        echo 'Yes';
+                                                    }else{
+                                                        echo 'No';
+                                                    }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Leadership 113</td>
+                                                <td>
+                                                    <?php
+                                                    if($intern['leadership_113']==1){
+                                                        echo 'Yes';
+                                                    }else{
+                                                        echo 'No';
+                                                    } ?>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
+                                    <?php endif; ?>
+                                    <?php endforeach; ?>
+                                        
                                 </div>
                                 
                                 <?php endforeach; ?>

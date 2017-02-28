@@ -15,7 +15,7 @@
     <script src="<?php echo base_url("resources/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js");?>"></script>
     <script src="<?php echo base_url("resources/js/owl.carousel.js");?>" ></script>
     <!-- jQuery full calendar -->
-    <<script src="<?php echo base_url("resources/js/fullcalendar.min.js");?>"></script> <!-- Full Google Calendar - Calendar -->
+    <script src="<?php echo base_url("resources/js/fullcalendar.min.js");?>"></script> <!-- Full Google Calendar - Calendar -->
 	<script src="<?php echo base_url("assets/fullcalendar/fullcalendar/fullcalendar.js");?>"></script>
     <!--script for this page only-->
     <script src="<?php echo base_url("resources/js/calendar-custom.js");?>"></script>
@@ -42,9 +42,20 @@
         <script src="<?php echo base_url("resources/js/form-validation-script.js");?>"></script>
         <script src="<?php echo base_url("resources/js/bootstrap-datepicker.js");?>"></script>
   <script>
-      $('.datepicker').datepicker(
-             
-              );
+     
+      $('.datepicker').datepicker({
+            format: "mm/yyyy",
+            autoclose: true,
+       }).on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+       });
+       
+       $('.datepicker2').datepicker({
+            format: "dd/mm/yyyy",
+            autoclose: true,
+       }).on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+       });
       //knob
       $(function() {
         $(".knob").knob({

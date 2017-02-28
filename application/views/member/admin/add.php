@@ -38,21 +38,21 @@
                                             <input class="form-control" id="cname" name="first_name" minlength="3" type="text" required />
                                         </div>
                                     </div>
+                                    <div id="checkName">
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Middle Name <span class="required">*</span></label>
+                                            <div class="col-lg-10">
+                                                <input class="form-control" id="cname" name="middle_name" minlength="3" type="text" required />
+                                            </div>
+                                        </div>
 
-                                    <div class="form-group ">
-                                        <label for="cname" class="control-label col-lg-2">Middle Name <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="middle_name" minlength="3" type="text" required />
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Last Name <span class="required">*</span></label>
+                                            <div class="col-lg-10">
+                                                <input class="form-control" id="lname" name="last_name" minlength="3" type="text" required />
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="form-group ">
-                                        <label for="cname" class="control-label col-lg-2">Last Name <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="last_name" minlength="3" type="text" required />
-                                        </div>
-                                    </div>
-                                    
 
                                     <div class="form-group">
                                         <label for="cname" class="control-label col-lg-2">Gender <span class="required">*</span></label>
@@ -90,7 +90,7 @@
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Birthday <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control datepicker" id="datepicker" data-date-format="yyyy-mm-dd" name="birthday" minlength="3" type="text" required />
+                                            <input class="form-control datepicker2" id="datepicker2" data-date-format="mm/dd/yyyy" name="birthday" minlength="3" type="text" required />
                                         </div>
                                         
                                     </div>
@@ -146,7 +146,7 @@
                                                 <option value="España">España</option>
                                                 <option value="Intramuros">Intramuros</option>
                                                 <option value="Mendiola">Mendiola</option>
-                                                <option value="Sta Mesa">Sta mesa</option>                                            
+                                                <option value="Sta. Mesa">Sta. Mesa</option>                                            
                                             </select>
                                         </div>
                                     </div>
@@ -192,7 +192,7 @@
                                     <hr>
                                     
                                     <div class="form-group ">
-                                        <label for="cemail" class="control-label col-lg-2">Youth Service's You Attend<span class="required">*</span></label>
+                                        <label for="cemail" class="control-label col-lg-2">Youth Service/s You regularly attend<span class="required">*</span></label>
                                         <div class="col-lg-10">
                                             <div class="checkbox">
                                                 <label>
@@ -287,7 +287,7 @@
                                     </div>
 
                                     <div class="form-group ">
-                                        <label for="cemail" class="control-label col-lg-2">Name of Your Leadership Group <span class="required">*</span></label>
+                                        <label for="cemail" class="control-label col-lg-2">Name of Your Leadership Group Leader <span class="required">*</span></label>
                                         <div class="col-lg-10">
                                             <input class="form-control" id="cname" name="name_leader" minlength="3" type="text" required />
                                         </div>
@@ -350,19 +350,15 @@
                                     </div>
 
                                     <div class="form-group ">
-                                        <label for="cname" class="control-label col-lg-2">Number of Victory Groups you are leading <span class="required">*</span></label>
+                                        <label for="cname" class="control-label col-lg-2">Number of Victory Group/s You are Leading <span class="required">*</span></label>
                                         <div class="col-lg-10">
                                             <select class="form-control input-lg m-bot15" name="number_victory_groups">                                            
+                                                <option value="0">0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
+                                                
                                             </select>
 
                                         </div>
@@ -400,6 +396,11 @@
               
     </section>
 </section>
-<script type="text/javascript">
-    
+<script>
+    $(document).ready(function(){
+	$("#lname").click(function(){
+            
+        });
+            
+    });
 </script>

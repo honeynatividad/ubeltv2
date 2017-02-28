@@ -10,10 +10,12 @@ class Interns extends CI_Controller {
 	$this->load->model('member');
         $this->load->model('campus');
         $this->load->model('intern');
+        $this->load->model('user');
         $this->load->model('victory_group');
         $this->load->helper('form');
         $this->load->library('form_validation');
         $victory_group = $this->session->userdata('victory_group_no');
+        $this->user_data = $this->session->userdata('userId');
 	
     }
     
@@ -26,9 +28,13 @@ class Interns extends CI_Controller {
         //echo '</pre>';
         $data['campuses'] = $campusData;
         
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['isAdmin']    = $users['name'];
+        $data['user_data'] = $this->user_data;
+        
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
-        $this->load->view('template/nav-left');
+        $this->load->view('template/nav-left',$data);
         $this->load->view('interns/admin/add', $data);
         $this->load->view('template/footer-main');
         
@@ -70,6 +76,7 @@ class Interns extends CI_Controller {
                         $this->session->set_userdata('victory_group_no', $victory_group);
                         redirect(base_url('victory_groups/add/'.$member_id));
                     }else{
+                        $this->session->set_userdata('success_msg', 'Thank you for responding accurately to our database.');
                         redirect(base_url('members/add'));
                     }
                     

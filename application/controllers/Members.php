@@ -11,6 +11,7 @@ class Members extends CI_Controller {
 	$this->load->model('member');
         $this->load->model('campus');
         $this->load->model('user');
+        $this->load->model('intern');
         $this->load->model('victory_group');
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -108,7 +109,8 @@ class Members extends CI_Controller {
             //print_r($userData);
             //echo '</pre>';
             //if($this->form_validation->run() == true){
-          
+            
+            
                 
                 
                 $insert = $this->member->insert($userData);
@@ -124,10 +126,11 @@ class Members extends CI_Controller {
 
                     $insertData = $this->user->insert($user);
                     
-                    $this->session->set_userdata('success_msg', 'Your registration was successfully. You may now be able to login using your email address and password you have provided.');
+                    $this->session->set_userdata('success_msg', 'Registration successful. You may be able to login using the email address and password you have provided.');
                     if($number_of_victory_groups>0){
                         redirect(base_url('victory_groups/add/'.$insert));
                     }else{
+                        $this->session->set_userdata('success_msg', 'Registration successful. You may be able to login using the email address and password you have provided.');
                         redirect(base_url('members/add'));
                     }
                     
@@ -204,12 +207,27 @@ class Members extends CI_Controller {
         //}
         //for victory group
         $victory_groups = $this->victory_group->getRows(array('member_id'=>$member_id));
+        $interns = $this->intern->getRows(array('member_id'=>$member_id));
         $data['victory_groups'] = $victory_groups;
-        
+        $data['interns'] = $interns;
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
         $this->load->view('template/nav-left',$data);
         $this->load->view('member/admin/view', $data);
         $this->load->view('template/footer-main');
+    }
+    
+    public function checkNames(){
+        if(isset($_POST['last_name'])){
+        ?>
+        
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Last Name <span class="required">*</span></label>
+            <div class="col-lg-10">
+                <input class="form-control" id="lname" name="last_name" minlength="3" type="text" required />
+            </div>
+        </div>
+        <?php
+        }
     }
 }
