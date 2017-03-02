@@ -125,13 +125,15 @@ class Members extends CI_Controller {
                     );
 
                     $insertData = $this->user->insert($user);
-                    
+                    $this->session->set_userdata('logged_in',TRUE);
+                    $this->session->set_userdata('isUserLoggedIn',TRUE);
+                    $this->session->set_userdata('userId',$checkLogin['id']);
                     $this->session->set_userdata('success_msg', 'Registration successful. You may be able to login using the email address and password you have provided.');
                     if($number_of_victory_groups>0){
                         redirect(base_url('victory_groups/add/'.$insert));
                     }else{
                         $this->session->set_userdata('success_msg', 'Registration successful. You may be able to login using the email address and password you have provided.');
-                        redirect(base_url('members/add'));
+                        redirect(base_url('members/view/'.$insertData));
                     }
                     
                 }else{

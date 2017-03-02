@@ -77,7 +77,7 @@ class Interns extends CI_Controller {
                         redirect(base_url('victory_groups/add/'.$member_id));
                     }else{
                         $this->session->set_userdata('success_msg', 'Thank you for responding accurately to our database.');
-                        redirect(base_url('members/add'));
+                        redirect(base_url('members/view/'.$member_id));
                     }
                     
                 }

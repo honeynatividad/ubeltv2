@@ -69,7 +69,7 @@ class Victory_groups extends CI_Controller {
                 if($no_of_intern==1){
                     redirect(base_url('interns/add/'.$member_id.'/'.$insert));
                 }else{
-                    redirect(base_url('members/add'));
+                    redirect(base_url('members/view/'.$member_id));
                 }
                     
             }else{

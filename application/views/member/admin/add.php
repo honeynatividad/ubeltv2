@@ -30,7 +30,7 @@
                         <div class="form">
                             <form class="form-validate form-horizontal" id="feedback_form" action="" method="post">
                                 <div class="col-lg-6">
-                                    <h1>Personal Information</h1>
+                                    <h3>Personal Information</h3>
                                     <hr>
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">First Name <span class="required">*</span></label>
@@ -188,7 +188,7 @@
                                 
                                 <div class="col-lg-6 border-content">
                                     
-                                    <h1>Ministry Information</h1>
+                                    <h3>Ministry Information</h3>
                                     <hr>
                                     
                                     <div class="form-group ">
@@ -388,8 +388,8 @@
                                 
                                   </form>
                               </div>
-                        <p><i>If you have victory group you are leading, this will be redirected to victory group information form</i></p>
-                          </div>
+                        <p><i>If you are leading a Victory Group, you will be redirected to Victory Group Information.</i></p>
+                          </div>If you
                       </section>
                   </div>
               </div>

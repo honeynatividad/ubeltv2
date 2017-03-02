@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Victory Group Information Form
+                        <h3>Victory Group Information Form</h3>
                     </header>
                     <div class="panel-body">
                         <div class="form">
@@ -133,7 +133,7 @@
                                 
                                 <div class="col-lg-6 border-content">
                                     <div>
-                                    <h1>Victory Group Members Discipleship Journey</h1>
+                                    <h3>Victory Group Members Discipleship Journey</h3>
                                     </div>
                                     <div>
                                         <p><i>Input total number of members who COMPLETED each discipleship milestone</i></p>
