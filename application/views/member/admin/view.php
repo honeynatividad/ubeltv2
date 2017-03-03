@@ -28,6 +28,9 @@
                                           Victory Group Profile
                                 </a>
                             </li>
+                            <li>
+                                <a href="<?php echo base_url('members/edit/') ?>">EDIT</a>
+                            </li>
                             
                         </ul>
                     </header>
