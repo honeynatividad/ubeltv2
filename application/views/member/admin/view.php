@@ -140,13 +140,13 @@
                                 </table>
                             </div>
                             <div id="about-2" class="tab-pane">
-                                <a class="btn btn-warning" data-toggle="modal" href="#myModal2">
-                                Edit
-                                </a>
+                                
                                 <?php foreach($victory_groups as $victory_group): ?>
                                 <div class="col-lg-5">
                                     <table class="table">
-                                    
+                                        <a class="btn btn-warning" data-toggle="modal" href="#myModal">
+                                        Edit
+                                        </a>
                                         <tbody>
                                             <tr>
                                                 <td>Campus</td>
@@ -218,6 +218,9 @@
                                     
                                     <?php foreach($interns as $intern): ?>
                                     <?php if($intern['victory_group_id']==$victory_group['victory_group_id']): ?>
+                                    <a class="btn btn-warning" data-toggle="modal" href="#myModal3">
+                                    Edit
+                                    </a>
                                     <table class="table-inbox border-content">
                                         <tbody>
                                             <tr>
@@ -563,28 +566,27 @@
             </div>
             <div class="modal-body">
                 <div class="form">
-                    <form class="form-validate form-horizontal" id="feedback_form" action="" method="post">
-                        
+                   
                         <h3>Personal Information</h3>
                         <hr>
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-4">First Name <span class="required">*</span></label>
                             <div class="col-lg-8">
-                                <input class="form-control" id="cname" name="first_name" minlength="3" type="text" required />
+                                <input class="form-control" id="cname" name="first_name" minlength="3" type="text" value="<?php echo $members['first_name'] ?>" required />
                             </div>
                         </div>
                         <div id="checkName">
                             <div class="form-group ">
                                 <label for="cname" class="control-label col-lg-4">Middle Name <span class="required">*</span></label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" id="cname" name="middle_name" minlength="3" type="text" required />
+                                    <input class="form-control" id="cname" name="middle_name" minlength="3" type="text" value="<?php echo $members['middle_name'] ?>" required />
                                 </div>
                             </div>
 
                             <div class="form-group ">
                                 <label for="cname" class="control-label col-lg-4">Last Name <span class="required">*</span></label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" id="lname" name="last_name" minlength="3" type="text" required />
+                                    <input class="form-control" id="lname" name="last_name" minlength="3" type="text" value="<?php echo $members['last_name'] ?>" required />
                                 </div>
                             </div>
                         </div>
@@ -593,6 +595,7 @@
                             <label for="cname" class="control-label col-lg-4">Gender <span class="required">*</span></label>
                             <div class="col-lg-8">
                             <?php
+                            print_r($user['gender']);
                             if(!empty($user['gender']) && $user['gender'] == 'Female'){
                                 $fcheck = 'checked="checked"';
                                 $mcheck = '';
@@ -618,14 +621,14 @@
                     <div class="form-group ">
                         <label for="cname" class="control-label col-lg-4">Contact Number <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control" id="cname" name="contact_number" minlength="3" type="text" required />
+                            <input class="form-control" id="cname" name="contact_number" minlength="3" value="<?php echo $members['contact_number'] ?>" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cname" class="control-label col-lg-4">Birthday <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker2" id="datepicker2" data-date-format="mm/dd/yyyy" name="birthday" minlength="3" type="text" required />
+                            <input class="form-control datepicker2" id="datepicker2" data-date-format="mm/dd/yyyy" name="birthday" minlength="3" value="<?php echo $members['birthday'] ?>" type="text" required />
                         </div>
                                         
                     </div>
@@ -633,7 +636,7 @@
                     <div class="form-group ">
                         <label for="cname" class="control-label col-lg-4">Email Address <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control" id="cname" name="email_address" minlength="3" type="text" required />
+                            <input class="form-control" id="cname" name="email_address" minlength="3" value="<?php echo $members['email_address'] ?>" type="text" required />
                         </div>
                     </div>
                     <div class="form-group">
@@ -647,14 +650,14 @@
                     <div class="form-group ">
                         <label for="cname" class="control-label col-lg-4">Facebook Name <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control" id="cname" name="facebook_name" minlength="3" type="text" required />
+                            <input class="form-control" id="cname" name="facebook_name" minlength="3" value="<?php echo $members['facebook_name'] ?>" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cname" class="control-label col-lg-4">Complete Home Address <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <textarea class="form-control" id="cname" name="complete_home_address"></textarea>
+                            <textarea class="form-control" id="cname" name="complete_home_address"><?php echo $members['complete_home_address'] ?></textarea>
 
                         </div>
                     </div>
@@ -663,7 +666,7 @@
                         <label for="cname" class="control-label col-lg-4">Campus <span class="required">*</span></label>
                         <div class="col-lg-8">
                             <select class="form-control input-lg m-bot15" name="campus">
-                                <option value=""></option>
+                                <option value="<?php echo $members['campus'] ?>"><?php echo $members['campus'] ?></option>
                                 <?php foreach($campuses as $campus):?>
 
                                 <option value="<?php echo $campus['name'] ?>"><?php echo $campus['name'] ?></option>
@@ -677,7 +680,7 @@
                         <label for="cemail" class="control-label col-lg-4">Area <span class="required">*</span></label>
                         <div class="col-lg-8">
                             <select class="form-control input-lg m-bot15" name="area">                                            
-                                <option value=""></option>
+                                <option value="<?php echo $members['area'] ?>"><?php echo $members['area'] ?></option>
                                 <option value="España">España</option>
                                 <option value="Intramuros">Intramuros</option>
                                 <option value="Mendiola">Mendiola</option>
@@ -690,7 +693,7 @@
                         <label for="cemail" class="control-label col-lg-4">Year Level <span class="required">*</span></label>
                         <div class="col-lg-8">
                             <select class="form-control input-lg m-bot15" name="year_level">                                            
-                                <option value=""></option>
+                                <option value="<?php echo $members['year_level'] ?>"><?php echo $members['year_level'] ?></option>
                                 <option value="Junior HS">Junior HS(Grade 7-10)</option>
                                 <option value="Senior HS">Senior HS(Grade 11-12)</option>
                                 <option value="First year">First Year</option>
@@ -710,7 +713,7 @@
                         <label for="cemail" class="control-label col-lg-4">Graduating <span class="required">*</span></label>
                         <div class="col-lg-8">
                             <select class="form-control input-lg m-bot15" name="graduating">                                            
-                                <option value=""></option>
+                                <option value="<?php echo $members['graduating'] ?>"><?php echo $members['graduating'] ?></option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                                 <option value="Not applicable">Not Applicable if YP or Staff</option>
@@ -821,63 +824,63 @@
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">Name of Your Leadership Group Leader <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control" id="cname" name="name_leader" minlength="3" type="text" required />
+                            <input class="form-control" id="cname" name="name_leader" minlength="3" value="<?php echo $members['name_of_your_leadership_group'] ?>" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">One 2 one <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="one_2_one" minlength="3" type="text" required />
+                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="one_2_one" value="<?php echo $members['one_2_one'] ?>" minlength="3" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">Victory Weekend <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" id="cname" name="victory_weekend" minlength="3" type="text" required />
+                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" id="cname" name="victory_weekend" value="<?php echo $members['victory_weekend'] ?>" minlength="3" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">Water Baptism <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="water_baptism" minlength="3" type="text" required />
+                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="water_baptism" minlength="3" <?php echo $members['water_baptism'] ?> type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">Making Disciples <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="making_disciples" minlength="3" type="text" required />
+                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="making_disciples" minlength="3" value="<?php echo $members['making_disciples'] ?>" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">Church Community <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="church_community" minlength="3" type="text" required />
+                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="church_community" value="<?php echo $members['church_community'] ?>" minlength="3" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">Foundation Class <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="foundation_class" minlength="3" type="text" required />
+                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="foundation_class" value="<?php echo $members['foundation_class'] ?>" minlength="3" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">Empowering Leaders <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="empowering_leaders" minlength="3" type="text" required />
+                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="empowering_leaders" value="<?php echo $members['empowering_leaders'] ?>" minlength="3" type="text" required />
                         </div>
                     </div>
 
                     <div class="form-group ">
                         <label for="cemail" class="control-label col-lg-4">Leadership 113 <span class="required">*</span></label>
                         <div class="col-lg-8">
-                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="leadership_113" minlength="3" type="text" required />
+                            <input class="form-control datepicker" id="datepicker" data-date-format="mm/yyyy" name="leadership_113" minlength="3" <?php echo $members['leadership_113'] ?> type="text" required />
                         </div>
                     </div>
 
@@ -885,6 +888,7 @@
                         <label for="cname" class="control-label col-lg-4">Number of Victory Group/s You are Leading <span class="required">*</span></label>
                         <div class="col-lg-8">
                             <select class="form-control input-lg m-bot15" name="number_victory_groups">                                            
+                                <option value="<?php echo $members['how_many_victory_groups_you_are_leading'] ?>"><?php echo $members['how_many_victory_groups_you_are_leading'] ?></option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -905,14 +909,211 @@
                     </div>
                     
                                 
-                </form>
-            
+                
             </div>
             <div class="modal-footer">
                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
-                <button class="btn btn-success" type="button">Save changes</button>
+                <button class="btn btn-success" id="editPersonalInformation" type="button">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 <!-- modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Edit</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form">
+                    <form class="form-validate form-horizontal" id="feedback_form" action="" method="post">
+                        <input type="hidden" name="member_id" value="<?php echo $member_id ?>">
+                        <input type="hidden" name="victory_group_id" value="<?php echo $victory_group_id ?>">
+                        <div class="col-lg-12">
+                            <p><i>Must be DONE with Victory Weekend, co-leading with Victory Group Leader and has F.A.I.T.H</i></p>
+                        </div>
+                                
+                        <div class="form-group ">
+                            <label for="cname" class="control-label col-lg-2">Full Name <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" name="full_name" minlength="5" required />
+                            </div>
+                        </div>
+                                
+                        <div class="form-group ">
+                            <label for="cname" class="control-label col-lg-2">Contact Number <span class="required">*</span></label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" name="contact_number" minlength="5" required />
+                            </div>
+                        </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cname" class="control-label col-lg-2">Campus <span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control input-lg m-bot15" name="campus">
+                                            <option value=""></option>
+                                            <?php foreach($campuses as $campus):?>
+                                            
+                                            <option value="<?php echo $campus['name'] ?>"><?php echo $campus['name'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Year Level <span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control input-lg m-bot15" name="year_level">                                            
+                                            <option value=""></option>
+                                            <option value="Junior HS">Junior HS(Grade 7-10)</option>
+                                            <option value="Senior HS">Senior HS(Grade 11-12)</option>
+                                            <option value="First year">First Year</option>
+                                            <option value="Second Year">Second Year</option>
+                                            <option value="Third Year">Third Year</option>
+                                            <option value="Fourth Year">Fourth Year</option>
+                                            <option value="Fifth Year">Fifth Year</option>
+                                            <option value="YP Volunteer">YP Volunteer</option>
+                                            <option value="Staff">Staff</option>
+                                            <option value="Other">Other</option>
+                                                                           
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Graduating <span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control input-lg m-bot15" name="graduating">                                            
+                                            <option value=""></option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                            <option value="Not applicable">Not Applicable if YP or Staff</option>
+                                            
+                                                                           
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">One 2 One<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="one_2_one">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Victory Weekend<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="victory_weekend">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Water Baptism<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="water_baptism">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Making Disciples<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="making_disciples">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Church Community<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="church_community">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Foundation Class<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="foundation_class">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Empowering Leaders<span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="1" name="empowering_leaders">
+                                                  
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group ">
+                                    <label for="cemail" class="control-label col-lg-2">Do you have another intern? <span class="required">*</span></label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control input-lg m-bot15" name="do_you_have_another_intern">
+                                            <option value=""></option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <input type="submit" id="submit" name="memberSubmit" class="btn btn-primary" value="SAVE"/>
+                                              
+                                        <button class="btn btn-default" type="button">Cancel</button>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+	$("#editPersonalInformation").click(function(){
+            alert("TEST");
+        });
+            
+    });
+</script>

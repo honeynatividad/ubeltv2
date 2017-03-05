@@ -201,9 +201,14 @@ class Members extends CI_Controller {
         $memberData = $this->member->getRows($userData);
         $data['user_data'] = $this->user_data;
         $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['user'] = $users;
+        
         $data['isAdmin']    = $users['name'];
         //print_r($data['user_data']);
         $data['members']    = $memberData;
+        $campusData = $this->campus->getRows();
+        
+        $data['campuses'] = $campusData;
         //if($users['name']=="admin"){
             
         //}
@@ -257,7 +262,9 @@ class Members extends CI_Controller {
         $data['members']    = array($memberData);
         $data['victory_groups'] = array($victory_groups);
         $data['interns']    = array($interns);
+        $campusData = $this->campus->getRows();
         
+        $data['campuses'] = $campusData;
         
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
