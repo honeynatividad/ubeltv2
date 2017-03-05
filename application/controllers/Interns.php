@@ -45,7 +45,8 @@ class Interns extends CI_Controller {
             $victory_group_id = strip_tags($this->input->post('victory_group_id'));
             $no_of_intern = strip_tags($this->input->post('no_of_intern'));
             
-            $userData = array(                
+            $userData = array(        
+                'member_id'                         =>  $member_id,        
                 'victory_group_id'                  =>  strip_tags($this->input->post('victory_group_id')),                
                 'intern_name'                         =>  strip_tags($this->input->post('full_name')),
                 'contact_number'                    =>  strip_tags($this->input->post('contact_number')),

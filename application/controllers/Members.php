@@ -212,6 +212,7 @@ class Members extends CI_Controller {
         $interns = $this->intern->getRows(array('member_id'=>$member_id));
         $data['victory_groups'] = $victory_groups;
         $data['interns'] = $interns;
+        $data['member_id'] = $member_id;
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
         $this->load->view('template/nav-left',$data);
@@ -231,5 +232,38 @@ class Members extends CI_Controller {
         </div>
         <?php
         }
+    }
+
+    function edit($member_id){
+
+        $users = $this->member->getRows(array('id'=>$member_id));
+        $data['users'] = $users;
+        
+        if(isset($_POST['last_name'])){
+
+        }
+        $id = array(
+            'member_id' =>  $member_id
+        );
+
+        $memberData = $this->member->getRows($id);
+        $victory_groups = $this->member->getRows($id);
+        $interns = $this->intern->getRows($id);
+        $data['user_data'] = $this->user_data;
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+
+        $data['isAdmin']    = $users['name'];
+        //print_r($data['user_data']);
+        $data['members']    = array($memberData);
+        $data['victory_groups'] = array($victory_groups);
+        $data['interns']    = array($interns);
+        
+        
+        $this->load->view('template/header-main');
+        $this->load->view('template/nav-top');
+        $this->load->view('template/nav-left',$data);
+        $this->load->view('member/admin/edit', $data);
+        $this->load->view('template/footer-main');
+        
     }
 }
