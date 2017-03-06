@@ -243,10 +243,7 @@ class Members extends CI_Controller {
 
         $users = $this->member->getRows(array('id'=>$member_id));
         $data['users'] = $users;
-        
-       
-            
-            
+        if(isset($_POST['last_name'])){
             //$this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check');
             $th_5pm = strip_tags($this->input->post('th_5pm'));
             $th_7pm = strip_tags($this->input->post('th_7pm'));
@@ -297,15 +294,19 @@ class Members extends CI_Controller {
                 'how_many_victory_groups_you_are_leading' => strip_tags($this->input->post('number_victory_groups'))
                 
             );
-            
+            $mid = strip_tags($this->input->post('member_id'));
+            $update = $this->member->updateMember($mid,$data);
+            //echo $mid;
+            redirect(base_url('members/view/'.$mid));
+        }
        
-        $mid = strip_tags($this->input->post('member_id'));
-        $update = $this->member->updateMember($mid,$data);
-        
-        
+            
         $id = array(
             'member_id' =>  $member_id
         );
+            
+        $users = $this->user->getRows(array('id'=>$member_id));
+        $data['user'] = $users;
 
         $memberData = $this->member->getRows($id);
         $victory_groups = $this->member->getRows($id);
@@ -315,13 +316,23 @@ class Members extends CI_Controller {
 
         $data['isAdmin']    = $users['name'];
         //print_r($data['user_data']);
-        $data['members']    = array($memberData);
+        $data['members']    = $memberData;
+       
         $data['victory_groups'] = array($victory_groups);
         $data['interns']    = array($interns);
         $campusData = $this->campus->getRows();
         
         $data['campuses'] = $campusData;
         
+        
+        
+        
+        $data['member_id'] = $member_id;
+        $this->load->view('template/header-main');
+        $this->load->view('template/nav-top');
+        $this->load->view('template/nav-left',$data);
+        $this->load->view('member/admin/edit', $data);
+        $this->load->view('template/footer-main');
         
     }
 }

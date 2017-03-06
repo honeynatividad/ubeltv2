@@ -65,6 +65,13 @@ class Victory_group extends CI_Model{
         }
     }
     
+    public function updateVictoryGroup($id,$data){
+        $this->db->where('victory_group_id', $id);
+        $this->db->update('victory_groups', $data);
+        $this->db->close();
+        return true;
+    }
+    
     public function campusSelect(){
         
     }
