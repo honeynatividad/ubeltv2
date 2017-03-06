@@ -210,7 +210,7 @@ class Members extends CI_Controller {
         
         $data['campuses'] = $campusData;
         //if($users['name']=="admin"){
-            
+        $data['member_id'] = $member_id;    
         //}
         //for victory group
         $victory_groups = $this->victory_group->getRows(array('member_id'=>$member_id));
@@ -244,9 +244,65 @@ class Members extends CI_Controller {
         $users = $this->member->getRows(array('id'=>$member_id));
         $data['users'] = $users;
         
-        if(isset($_POST['last_name'])){
-
-        }
+       
+            
+            
+            //$this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check');
+            $th_5pm = strip_tags($this->input->post('th_5pm'));
+            $th_7pm = strip_tags($this->input->post('th_7pm'));
+            $f_3pm = strip_tags($this->input->post('f_3pm'));
+            $f_5pm = strip_tags($this->input->post('f_5pm'));
+            $f_7pm = strip_tags($this->input->post('f_7pm'));
+            $service_other = strip_tags($this->input->post('service_other'));
+            
+            $youth_services_you_attend = $th_5pm.",".$th_7pm.",".$f_3pm.",".$f_5pm.",".$f_7pm.",".$service_other;
+            
+            $ministry_admin = strip_tags($this->input->post('ministry_admin'));
+            $ministry_communication = strip_tags($this->input->post('ministry_communication'));
+            $ministry_kids = strip_tags($this->input->post('ministry_kids'));
+            $ministry_music = strip_tags($this->input->post('ministry_music'));
+            $ministry_prayer = strip_tags($this->input->post('ministry_prayer'));
+            $ministry_production = strip_tags($this->input->post('ministry_production'));
+            $ministry_technical = strip_tags($this->input->post('ministry_technical'));
+            $ministry_ushering = strip_tags($this->input->post('ministry_ushering'));
+            $ministry_none  = strip_tags($this->input->post('ministry_none'));
+            
+            $ministry_involvement = $ministry_admin.",".$ministry_communication.",".$ministry_kids.",".$ministry_music.",".$ministry_prayer.",".$ministry_production.",".$ministry_technical.",".$ministry_ushering.",".$ministry_none;
+            
+            $number_of_victory_groups = strip_tags($this->input->post('number_victory_groups'));
+            $data = array(
+                'first_name'                    => strip_tags($this->input->post('first_name')),
+                'middle_name'                   =>  strip_tags($this->input->post('middle_name')),
+                'last_name'                     =>  strip_tags($this->input->post('last_name')),
+                'contact_number'                =>  strip_tags($this->input->post('contact_number')),
+                'birthday'                      =>  strip_tags($this->input->post('birthday')),
+                'email_address'                 =>  strip_tags($this->input->post('email_address')),
+                'facebook_name'                 =>  strip_tags($this->input->post('facebook_name')),
+                'complete_home_address'         => strip_tags($this->input->post('complete_home_address')),
+                'campus'                        => strip_tags($this->input->post('campus')),
+                'area'                          =>  strip_tags($this->input->post('area')),
+                'year_level'                    =>  strip_tags($this->input->post('year_level')),
+                'graduating'                    =>  strip_tags($this->input->post('graduating')),                
+                'youth_services_you_attend'     =>  $youth_services_you_attend,
+                'ministry_involvement'          =>  $ministry_involvement,
+                'name_of_your_leadership_group' =>  strip_tags($this->input->post('name_leader')),
+                'one_2_one'                     => strip_tags($this->input->post('one_2_one')),
+                'victory_weekend'               =>  strip_tags($this->input->post('victory_weekend')),
+                'water_baptism'                 =>  strip_tags($this->input->post('water_baptism')),
+                'making_disciples'              =>  strip_tags($this->input->post('making_disciples')),
+                'church_community'             =>  strip_tags($this->input->post('church_community')),
+                'foundation_class'              =>  strip_tags($this->input->post('foundation_class')),
+                'empowering_leaders'            =>  strip_tags($this->input->post('empowering_leaders')),
+                'leadership_113'                =>  strip_tags($this->input->post('leadership_113')),
+                'how_many_victory_groups_you_are_leading' => strip_tags($this->input->post('number_victory_groups'))
+                
+            );
+            
+       
+        $mid = strip_tags($this->input->post('member_id'));
+        $update = $this->member->updateMember($mid,$data);
+        
+        
         $id = array(
             'member_id' =>  $member_id
         );
@@ -266,11 +322,6 @@ class Members extends CI_Controller {
         
         $data['campuses'] = $campusData;
         
-        $this->load->view('template/header-main');
-        $this->load->view('template/nav-top');
-        $this->load->view('template/nav-left',$data);
-        $this->load->view('member/admin/edit', $data);
-        $this->load->view('template/footer-main');
         
     }
 }

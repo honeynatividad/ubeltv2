@@ -65,6 +65,13 @@ class Member extends CI_Model{
         }
     }
     
+    public function updateMember($id,$data){
+        $this->db->where('member_id', $id);
+        $this->db->update('members', $data);
+        $this->db->close();
+        return true;
+    }
+    
     public function campusSelect(){
         
     }
