@@ -218,8 +218,8 @@
                                     
                                     <?php foreach($interns as $intern): ?>
                                     <?php if($intern['victory_group_id']==$victory_group['victory_group_id']): ?>
-                                    <a class="btn btn-warning" data-toggle="modal" href="#myModal3">
-                                    Edit
+                                    <a href="<?php echo base_url('intern/edit/'.$inter['intern_id']) ?>" class="btn btn-success">
+                                        EDIT
                                     </a>
                                     <table class="table-inbox border-content">
                                         <tbody>

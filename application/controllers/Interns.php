@@ -89,4 +89,10 @@ class Interns extends CI_Controller {
         }
         
     }
+    
+    public function edit($id){
+        if(isset($_POST['full_name'])){
+            
+        }
+    }
 }
