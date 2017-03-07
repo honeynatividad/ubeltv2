@@ -20,6 +20,7 @@
                     <div class="panel-body">
                         <div class="form">
                             <form class="form-validate form-horizontal" id="feedback_form" action="" method="post">
+                                <input type="hidden" name="intern_id" value="<?php echo $intern_id ?>">
                                 <input type="hidden" name="member_id" value="<?php echo $member_id ?>">
                                 <input type="hidden" name="victory_group_id" value="<?php echo $victory_group_id ?>">
                                 <div class="col-lg-12">
@@ -29,7 +30,7 @@
                                 <div class="form-group ">
                                     <label for="cname" class="control-label col-lg-2">Full Name <span class="required">*</span></label>
                                     <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="full_name" value="<?php echo $intern['full_name'] ?>" name="full_name" minlength="5" required />
+                                        <input type="text" class="form-control" id="full_name" value="<?php echo $intern['intern_name'] ?>" name="full_name" minlength="5" required />
                                     </div>
                                 </div>
                                 
@@ -93,7 +94,7 @@
                                     <div class="col-lg-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="<?php echo $intern['one_2_one'] ?>" name="one_2_one">
+                                                <input type="checkbox" value="<?php echo $intern['one_2_one'] ?>" <?php echo ($intern['one_2_one']==1 ? 'checked' : '');?> name="one_2_one">
                                                   
                                             </label>
                                         </div>
@@ -105,7 +106,7 @@
                                     <div class="col-lg-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="<?php echo $intern['victory_weekend'] ?>" name="victory_weekend">
+                                                <input type="checkbox" value="<?php echo $intern['victory_weekend'] ?>" <?php echo ($intern['victory_weekend']==1 ? 'checked' : '');?> name="victory_weekend">
                                                   
                                             </label>
                                         </div>
@@ -117,7 +118,7 @@
                                     <div class="col-lg-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="<?php echo $intern['water_baptism'] ?>" name="water_baptism">
+                                                <input type="checkbox" value="<?php echo $intern['water_baptism'] ?>" <?php echo ($intern['water_baptism']==1 ? 'checked' : '');?> name="water_baptism">
                                                   
                                             </label>
                                         </div>
@@ -129,7 +130,7 @@
                                     <div class="col-lg-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="<?php echo $intern['making_disciples'] ?>" name="making_disciples">
+                                                <input type="checkbox" value="<?php echo $intern['making_disciples'] ?>" <?php echo ($intern['making_disciples']==1 ? 'checked' : '');?> name="making_disciples">
                                                   
                                             </label>
                                         </div>
@@ -141,7 +142,7 @@
                                     <div class="col-lg-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="<?php echo $intern['churhc_community'] ?>" name="church_community">
+                                                <input type="checkbox" value="<?php echo $intern['church_community'] ?>" <?php echo ($intern['church_community']==1 ? 'checked' : '');?> name="church_community">
                                                   
                                             </label>
                                         </div>
@@ -153,7 +154,7 @@
                                     <div class="col-lg-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="<?php echo $intern['foundation_class'] ?>" name="foundation_class">
+                                                <input type="checkbox" value="<?php echo $intern['foundation_class'] ?>" <?php echo ($intern['foundation_class']==1 ? 'checked' : '');?> name="foundation_class">
                                                   
                                             </label>
                                         </div>
@@ -165,7 +166,7 @@
                                     <div class="col-lg-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="<?php echo $intern['empowering_leaders'] ?>" name="empowering_leaders">
+                                                <input type="checkbox" value="<?php echo $intern['empowering_leaders'] ?>" <?php echo ($intern['empowering_leaders']==1 ? 'checked' : '');?> name="empowering_leaders">
                                                   
                                             </label>
                                         </div>

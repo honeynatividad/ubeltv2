@@ -18,7 +18,7 @@ class Intern extends CI_Model{
         }
         
         if(array_key_exists("intern_id",$params)){
-            $this->db->where('intern_id',$params['member_id']);
+            $this->db->where('intern_id',$params['intern_id']);
             $query = $this->db->get();
             $result = $query->row_array();
         }else{
@@ -65,8 +65,11 @@ class Intern extends CI_Model{
         }
     }
     
-    public function campusSelect(){
-        
+    public function updateIntern($id,$data){
+        $this->db->where('intern_id', $id);
+        $this->db->update('interns', $data);
+        $this->db->close();
+        return true;
     }
 
 }
