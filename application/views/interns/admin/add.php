@@ -66,8 +66,7 @@
                                             <option value="Third Year">Third Year</option>
                                             <option value="Fourth Year">Fourth Year</option>
                                             <option value="Fifth Year">Fifth Year</option>
-                                            <option value="YP Volunteer">YP Volunteer</option>
-                                            <option value="Staff">Staff</option>
+                                            
                                             <option value="Other">Other</option>
                                                                            
                                         </select>

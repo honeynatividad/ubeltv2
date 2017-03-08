@@ -127,13 +127,13 @@ class Members extends CI_Controller {
                     $insertData = $this->user->insert($user);
                     $this->session->set_userdata('logged_in',TRUE);
                     $this->session->set_userdata('isUserLoggedIn',TRUE);
-                    $this->session->set_userdata('userId',$checkLogin['id']);
+                    $this->session->set_userdata('userId',$insert);
                     $this->session->set_userdata('success_msg', 'Registration successful. You may be able to login using the email address and password you have provided.');
                     if($number_of_victory_groups>0){
                         redirect(base_url('victory_groups/add/'.$insert));
                     }else{
                         $this->session->set_userdata('success_msg', 'Registration successful. You may be able to login using the email address and password you have provided.');
-                        redirect(base_url('members/view/'.$insertData));
+                        redirect(base_url('members/view/'.$insert));
                     }
                     
                 }else{
@@ -213,11 +213,14 @@ class Members extends CI_Controller {
         $data['member_id'] = $member_id;    
         //}
         //for victory group
-        $victory_groups = $this->victory_group->getRows(array('member_id'=>$member_id));
-        $interns = $this->intern->getRows(array('member_id'=>$member_id));
-        $data['victory_groups'] = $victory_groups;
+        $victory_groups = $this->victory_group->getRowsMember($id);
+        //echo '<pre>';
+        //print_r($victory_groups);
+        //echo '</pre>';
+        $interns = $this->intern->getRowsMember($id);
+        $data['victory_groups'] =$victory_groups;
         $data['interns'] = $interns;
-        $data['member_id'] = $member_id;
+        
         $this->load->view('template/header-main');
         $this->load->view('template/nav-top');
         $this->load->view('template/nav-left',$data);

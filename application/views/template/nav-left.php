@@ -20,6 +20,7 @@
                     
                 </ul>
             </li>  
+            
             <?php if($isAdmin=="admin"): ?>
             
             <li class="sub-menu">
@@ -43,9 +44,18 @@
                     <li><a class="" href="<?php echo base_url("/victory_groups/add");?>">Add</a></li>                          
                     <li><a class="" href="<?php echo base_url("/victory_groups/all");?>">List</a></li>
                 </ul>
-            </li>       
+            </li>     
+                
             
             <?php endif; ?>
+            <li class="sub-menu">
+                <a href="<?php echo base_url('users/logout'); ?>" class="">
+                    <i class="icon_document_alt"></i>
+                    <span>Logout</span>
+                    
+                </a>
+                
+            </li>  
         </ul>
               <!-- sidebar menu end-->
     </div>

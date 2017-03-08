@@ -104,6 +104,7 @@
                                         <label for="cname" class="control-label col-lg-4">How many members were connected from Outreach Month <span class="required">*</span></label>
                                         <div class="col-lg-8">
                                             <select class="form-control input-lg m-bot15" name="member_from_outreach">                                            
+                                                <option value="0">0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -141,56 +142,56 @@
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">One 2 One <span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="one_2_one" minlength="5" required />
+                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="one_2_one" minlength="5" value="0" required />
                                         </div>
                                     </div>
 
                                      <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">Victory Weekend <span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="victory_weekend" minlength="5" required />
+                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="victory_weekend" minlength="5" value="0" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">Water Baptism <span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="water_baptism" minlength="5" required />
+                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="water_baptism" minlength="5" value="0" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">Making Disciples<span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="making_disciples" minlength="5" required />
+                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="making_disciples" minlength="5" value="0" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">Church Community <span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="church_community" minlength="5" required />
+                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="church_community" minlength="5" value="0" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">Foundation Class<span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="foundation_class" minlength="5" required />
+                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="foundation_class" minlength="5" value="0" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">Empowering Leaders<span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="empowering_leaders" minlength="5" required />
+                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="empowering_leaders" minlength="5" value="0" required />
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-4">Leadership 113<span class="required">*</span></label>
                                         <div class="col-lg-8">
-                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="leadership_113" minlength="5" required />
+                                            <input type="number" id="replyNumber" min="0" step="1" data-bind="value:replyNumber" class="form-control" name="leadership_113" minlength="5" value="0" required />
                                         </div>
                                     </div>
 

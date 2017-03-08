@@ -389,7 +389,7 @@
                                   </form>
                               </div>
                         <p><i>If you are leading a Victory Group, you will be redirected to Victory Group Information.</i></p>
-                          </div>If you
+                          </div>
                       </section>
                   </div>
               </div>

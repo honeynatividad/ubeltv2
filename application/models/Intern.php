@@ -71,5 +71,10 @@ class Intern extends CI_Model{
         $this->db->close();
         return true;
     }
+    function getRowsMember($id){
+       $q = $this->db->query("SELECT * FROM interns WHERE member_id='$id'");
+            $this->db->close();
+            return $q->result();	
+    }
 
 }

@@ -75,5 +75,11 @@ class Victory_group extends CI_Model{
     public function campusSelect(){
         
     }
+    
+    function getRowsMember($id){
+       $q = $this->db->query("SELECT * FROM victory_groups WHERE member_id='$id'");
+            $this->db->close();
+            return $q->result();	
+    }
 
 }

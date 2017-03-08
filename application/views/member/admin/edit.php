@@ -189,95 +189,104 @@
 
                         <h3>Ministry Information</h3>
                         <hr>
-
+                        <?php 
+                        $youth = $members['youth_services_you_attend'];
+                        $youth = explode(',', $youth);
+                        
+                        ?>
                         <div class="form-group ">
                             <label for="cemail" class="control-label col-lg-4">Youth Service/s You regularly attend<span class="required">*</span></label>
                             <div class="col-lg-8">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="th-5pm" id="th-5pm" name="th-5pm">Thursday 5pm
+                                        <input type="checkbox" value="th-5pm" <?php echo ($youth[0]=='th-5pm' ? 'checked' : '');?> id="th-5pm" name="th-5pm">Thursday 5pm
 
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="th-7pm" value="th-7pm" name="th-7pm">Thursday 7pm
+                                        <input type="checkbox" value="th-7pm" value="th-7pm" <?php echo ($youth[1]=='th-7pm' ? 'checked' : '');?> name="th-7pm">Thursday 7pm
 
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="f-3pm" id="f-3pm" name="f-3pm">Friday 3pm
+                                        <input type="checkbox" value="f-3pm" <?php echo ($youth[2]=='f-3pm' ? 'checked' : '');?> id="f-3pm" name="f-3pm">Friday 3pm
 
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="f-5pm" id="f-5pm" name="f-5pm">Friday 5pm
+                                        <input type="checkbox" value="f-5pm" <?php echo ($youth[3]=='f-5pm' ? 'checked' : '');?> id="f-5pm" name="f-5pm">Friday 5pm
 
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="f-7pm" id="f-7pm" name="f-7pm">Friday 7pm
+                                        <input type="checkbox" value="f-7pm" <?php echo ($youth[4]=='f-7pm' ? 'checked' : '');?> id="f-7pm" name="f-7pm">Friday 7pm
 
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="service-other" id="service-other" name="service-other">Other
+                                        <input type="checkbox" value="service-other" <?php echo ($youth[5]=='service-other' ? 'checked' : '');?> id="service-other" name="service-other">Other
 
                                     </label>
                                 </div>
                             </div>
                         </div>
-
+                        <?php 
+                       
+                        $ministry = $members['ministry_involvement'];
+                        $ministry = explode(',', $ministry);
+                        
+                        ?>
                         <div class="form-group ">
                             <label for="cemail" class="control-label col-lg-4">Ministry Involvement<span class="required">*</span></label>
                             <div class="col-lg-8">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="Admin Support" id="ministry-admin" name="ministry-admin">Admin Support                                                  
+                                        <input type="checkbox" value="Admin Support" <?php echo ($ministry[0]=='Admin Support' ? 'checked' : '');?> id="ministry-admin" name="ministry-admin">Admin Support                                                  
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="Communication" id="ministry-communication" name="ministry-communication">Communication
+                                        <input type="checkbox" value="Communication" <?php echo ($ministry[1]=='Communication' ? 'checked' : '');?> id="ministry-communication" name="ministry-communication">Communication
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="Kids" id="ministry-kids" name="ministry-kids">Kids
+                                        <input type="checkbox" value="Kids" <?php echo ($ministry[2]=='Kids' ? 'checked' : '');?> id="ministry-kids" name="ministry-kids">Kids
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="Music" id="ministry-music" name="ministry-music">Music
+                                        <input type="checkbox" value="Music" <?php echo ($youth[3]=='Music' ? 'checked' : '');?> id="ministry-music" name="ministry-music">Music
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="Prayer Ministry" id="ministry-prayer" name="ministry-prayer">Prayer Ministry
+                                        <input type="checkbox" value="Prayer Ministry" <?php echo ($ministry[4]=='Prayer Ministry' ? 'checked' : '');?> id="ministry-prayer" name="ministry-prayer">Prayer Ministry
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="Production Design" id="ministry-production" name="ministry-production">Production Design
+                                        <input type="checkbox" value="Production Design" <?php echo ($ministry[5]=='Production Design' ? 'checked' : '');?> id="ministry-production" name="ministry-production">Production Design
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="Technical and Stage Management" id="ministry-technical" name="ministry-technical">Technical and Stage Management
+                                        <input type="checkbox" value="Technical and Stage Management" <?php echo ($ministry[6]=='Technical and Stage Management' ? 'checked' : '');?> id="ministry-technical" name="ministry-technical">Technical and Stage Management
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="Ushering" id="ministry-ushering" name="ministry-ushering">Ushering
+                                        <input type="checkbox" value="Ushering" <?php echo ($ministry[7]=='Ushering' ? 'checked' : '');?> id="ministry-ushering" name="ministry-ushering">Ushering
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="None" id="ministry-none" name="ministry-none">None
+                                        <input type="checkbox" value="None" <?php echo ($ministry[8]=='None' ? 'checked' : '');?> id="ministry-none" name="ministry-none">None
                                     </label>
                                 </div>
 
@@ -309,7 +318,7 @@
                         <div class="form-group ">
                             <label for="cemail" class="control-label col-lg-4">Water Baptism <span class="required">*</span></label>
                             <div class="col-lg-8">
-                                <input class="form-control datepicker" data-date-format="mm/yyyy" id="water_baptism" name="water_baptism" minlength="3" <?php echo $members['water_baptism'] ?> type="text" required />
+                                <input class="form-control datepicker" data-date-format="mm/yyyy" id="water_baptism" name="water_baptism" minlength="3" value="<?php echo $members['water_baptism'] ?>" type="text" required />
                             </div>
                         </div>
 
@@ -344,7 +353,7 @@
                         <div class="form-group ">
                             <label for="cemail" class="control-label col-lg-4">Leadership 113 <span class="required">*</span></label>
                             <div class="col-lg-8">
-                                <input class="form-control datepicker" data-date-format="mm/yyyy" id="leadership_113" name="leadership_113" minlength="3" <?php echo $members['leadership_113'] ?> type="text" required />
+                                <input class="form-control datepicker" data-date-format="mm/yyyy" id="leadership_113" name="leadership_113" minlength="3" value="<?php echo $members['leadership_113'] ?>" type="text" required />
                             </div>
                         </div>
 
@@ -389,7 +398,7 @@
 <script>
     $(document).ready(function(){
 	$("#editPersonalInformation").click(function(){
-            alert("TEST");
+            //alert("TEST");
             var member_id = $("#member_id").val();
             //alert(member_id);
             var first_name = $("#first_name").val();
