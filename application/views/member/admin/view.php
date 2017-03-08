@@ -40,6 +40,9 @@
                                 <a href="<?php echo base_url('members/edit/'.$member_id) ?>" class="btn btn-success">
                                   EDIT
                                 </a>
+                                <a href="<?php echo base_url('members/add/') ?>" class="btn btn-success">
+                                  ADD 
+                                </a>
                                 <table class="table">
                                     
                                     <tbody>
@@ -146,6 +149,9 @@
                                     <table class="table">
                                         <a class="btn btn-warning" data-toggle="modal" href="<?php echo base_url('victory_groups/edit/'.$victory_group['victory_group_id']) ?>">
                                         Edit
+                                        </a>
+                                        <a class="btn btn-warning" href="<?php echo base_url('victory_groups/add/'.$member_id) ?>">
+                                        ADD Victory Group
                                         </a>
                                         <tbody>
                                             <tr>

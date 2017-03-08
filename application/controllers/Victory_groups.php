@@ -82,10 +82,12 @@ class Victory_groups extends CI_Controller {
         $data['victory_group_id'] = $id;
         $campusData = $this->campus->getRows();
         $victory_groups = $this->victory_group->getRows(array('victory_group_id'=>$id));
-        foreach($victory_groups as $victory_group){
-            $member_id = $victory_group['member_id'];
-        }
-        $data['victory_groups'] = $victory_groups;
+        //echo '<pre>';
+        //print_r($victory_groups);
+        //echo '</pre>';
+       
+        $member_id = $victory_groups['member_id'];
+        $data['victory_groups'] = array($victory_groups);
         $data['member_id'] = $member_id;
         $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
         $data['isAdmin']    = $users['name'];
