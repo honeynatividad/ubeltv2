@@ -10,16 +10,7 @@
 		</ol>
             </div>
 	</div>
-        <div class="row">
-            <div class="col-lg-12">
-                <?php if(isset($success_msg)): ?>
-                <div class="alert alert-success fade in">
-                    <p><?php echo $success_msg ?></p>
-                </div>
-                
-                <?php endif; ?>
-            </div>
-        </div>      
+        
         <div class="row">
             <div class="col-lg-12">
                 <section class="panel">

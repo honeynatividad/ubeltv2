@@ -79,8 +79,7 @@
                                         <select class="form-control input-lg m-bot15" name="graduating">                                            
                                             <option value=""></option>
                                             <option value="Yes">Yes</option>
-                                            <option value="No">No</option>
-                                            <option value="Not applicable">Not Applicable if YP or Staff</option>
+                                            <option value="No">No</option>                                            
                                             
                                                                            
                                         </select>

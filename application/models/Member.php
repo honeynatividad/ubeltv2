@@ -75,5 +75,12 @@ class Member extends CI_Model{
     public function campusSelect(){
         
     }
-
+    
+    public function delete($id){
+               
+        $tables = array('members', 'victory_groups', 'interns','users');
+        $this->db->where('member_id', $id);
+        $this->db->delete($tables);
+        return true;
+    }
 }

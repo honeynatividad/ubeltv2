@@ -59,4 +59,68 @@ class Campuses extends CI_Controller {
         $this->load->view('campus/add', $data);
         $this->load->view('template/footer-main');
     }
+    
+    public function all(){
+        $session_data = $this->session->userdata('logged_in');
+        if(!$session_data){
+            redirect(base_url("users/login"));
+        }
+        
+        $campuses= $this->campus->getRows();
+        $data['campuses'] = $campuses;
+        
+        //echo '<pre>';
+        //    print_r($memberData);
+        //echo '</pre>';
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['isAdmin']    = $users['name'];
+        $data['user_data'] = $this->user_data;
+        
+        $this->load->view('template/header-main');
+        $this->load->view('template/nav-top');
+        $this->load->view('template/nav-left',$data);
+        $this->load->view('campus/all', $data);
+        $this->load->view('template/footer-main');
+    }
+    
+    public function edit($id){
+        $session_data = $this->session->userdata('logged_in');
+        if(!$session_data){
+            redirect(base_url("users/login"));
+        }
+        
+        $campuses= $this->campus->getRows(array('id'=>$id));
+        $data['campus'] = $campuses;
+        
+        $users = $this->user->getRows(array('id'=>$this->session->userdata('userId')));
+        $data['isAdmin']    = $users['name'];
+        $data['user_data'] = $this->user_data;
+        
+        $this->load->view('template/header-main');
+        $this->load->view('template/nav-top');
+        $this->load->view('template/nav-left',$data);
+        $this->load->view('campus/edit', $data);
+        $this->load->view('template/footer-main');
+        
+        if($this->input->post('campusSubmit')){
+            $this->form_validation->set_rules('code', 'Code', 'required');
+            $this->form_validation->set_rules('name', 'Name', 'required');
+            
+
+            $campusData = array(
+                'code' => strip_tags($this->input->post('code')),
+                'name' => strip_tags($this->input->post('name')),                
+            );
+            $id = strip_tags($this->input->post('id'));
+            if($this->form_validation->run() == true){
+                $insert = $this->campus->updateCampus($id,$campusData);
+                if($insert){
+                    
+                    redirect('campuses/all');
+                }else{
+                    $data['error_msg'] = 'Some problems occured, please try again.';
+                }
+            }
+        }
+    }
 }

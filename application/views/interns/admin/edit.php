@@ -81,7 +81,7 @@
                                             <option value="<?php echo $intern['graduating'] ?>"><?php echo $intern['graduating'] ?></option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
-                                            <option value="Not applicable">Not Applicable if YP or Staff</option>
+                                            
                                             
                                                                            
                                         </select>

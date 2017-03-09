@@ -338,4 +338,20 @@ class Members extends CI_Controller {
         $this->load->view('template/footer-main');
         
     }
+    
+    function delete($id){
+        $session_data = $this->session->userdata('logged_in');
+        if(!$session_data){
+            redirect(base_url("users/login"));
+        }
+        $delete = $this->member->delete($id);
+        if($delete){
+            $this->session->set_userdata('success_msg', 'You successfully deleted a member.');                
+            redirect(base_url('members/all'));            
+        }else{
+            $this->session->set_userdata('success_msg', 'Error occur.');                
+            redirect(base_url('members/all'));            
+        }
+            
+    }
 }

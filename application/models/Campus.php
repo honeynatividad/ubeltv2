@@ -19,6 +19,7 @@ class Campus extends CI_Model{
         
         if(array_key_exists("id",$params)){
             $this->db->where('id',$params['id']);
+            $this->db->order_by("name", "asc");
             $query = $this->db->get();
             $result = $query->row_array();
         }else{
@@ -28,6 +29,7 @@ class Campus extends CI_Model{
             }elseif(!array_key_exists("start",$params) && array_key_exists("limit",$params)){
                 $this->db->limit($params['limit']);
             }
+            $this->db->order_by("name", "asc");
             $query = $this->db->get();
             if(array_key_exists("returnType",$params) && $params['returnType'] == 'count'){
                 $result = $query->num_rows();
@@ -67,6 +69,13 @@ class Campus extends CI_Model{
     
     public function campusSelect(){
         
+    }
+    
+    public function updateCampus($id,$data){
+        $this->db->where('id', $id);
+        $this->db->update('campuses', $data);
+        $this->db->close();
+        return true;
     }
 
 }
