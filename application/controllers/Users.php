@@ -58,7 +58,7 @@ class Users extends CI_Controller {
             $this->session->unset_userdata('error_msg');
         }
         if($this->input->post('loginSubmit')){
-            $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+            $this->form_validation->set_rules('email', 'Email', 'required');
             $this->form_validation->set_rules('password', 'password', 'required');
             if ($this->form_validation->run() == true) {
                 $con['returnType'] = 'single';
@@ -92,7 +92,7 @@ class Users extends CI_Controller {
         $userData = array();
         if($this->input->post('regisSubmit')){
             $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_email_check');
+            $this->form_validation->set_rules('email', 'Email', 'required');
             $this->form_validation->set_rules('password', 'password', 'required');
             $this->form_validation->set_rules('conf_password', 'confirm password', 'required|matches[password]');
 

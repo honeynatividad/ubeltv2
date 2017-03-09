@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Member extends CI_Model{
     function __construct() {
+        $this->load->database();
         $this->userTbl = 'members';
     }
     /*
@@ -22,6 +23,7 @@ class Member extends CI_Model{
             $query = $this->db->get();
             $result = $query->row_array();
         }else{
+            print_r("TEST");
             //set start and limit
             if(array_key_exists("start",$params) && array_key_exists("limit",$params)){
                 $this->db->limit($params['limit'],$params['start']);
@@ -70,6 +72,36 @@ class Member extends CI_Model{
         $this->db->update('members', $data);
         $this->db->close();
         return true;
+    }
+    
+    function getRowsMember($params = array()){
+        $this->db->select('*');
+        $this->db->from($this->userTbl);
+        
+        //fetch data by conditions
+        if(array_key_exists("conditions",$params)){
+            foreach ($params['conditions'] as $key => $value) {
+                $this->db->where($key,$value);
+            }
+        }
+        
+        if(array_key_exists("member_id",$params)){
+            $this->db->where('member_id',$params['member_id']);
+            $query = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            
+            //set start and limit
+            $this->db->where('area',$params['area']);
+            $query = $this->db->get();
+            
+            
+            $result = ($query->num_rows() > 0)?$query->result_array():FALSE;
+        }
+
+        //return fetched data
+        
+        return $result;
     }
     
     public function campusSelect(){

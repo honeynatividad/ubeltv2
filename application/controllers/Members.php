@@ -173,8 +173,21 @@ class Members extends CI_Controller {
                 $data['members'] = $memberData;
             }
             
+        }elseif($users['name'] == 'stamesa'){
+            $memberData = $this->member->getRowsMember(array('area'=>'Sta. Mesa'));                  
+            $data['members'] = $memberData;            
+        }elseif($users['name'] == 'espana'){           
+            $memberData = $this->member->getRowsMember(array('area'=>'España'));                  
+            $data['members'] = $memberData;            
+        }elseif($users['name'] == 'intramuros'){
+            $memberData = $this->member->getRowsMember(array('area'=>'Intramuros'));                  
+            $data['members'] = $memberData;                        
+        }elseif($users['name'] == 'mendiola'){
+            $memberData = $this->member->getRowsMember(array('area'=>'Mendiola'));                  
+            $data['members'] = $memberData;                        
         }else{
             $memberData = array($this->member->getRows(array('member_id'=>$users['member_id'])));
+            
             $data['members'] = $memberData;
              
         }

@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label for="cname" class="control-label col-lg-2">Email <span class="required">*</span></label>
                                 <div class="col-lg-10">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required="" value="<?php echo !empty($user['email'])?$user['email']:''; ?>">
+                                    <input type="text" class="form-control" name="email" placeholder="Email" required="" value="<?php echo !empty($user['email'])?$user['email']:''; ?>">
                                     <?php echo form_error('email','<span class="help-block">','</span>'); ?>
                                 </div>
                             </div>

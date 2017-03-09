@@ -8,7 +8,7 @@
             
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_profile"></i></span>
-                <input type="email" class="form-control" placeholder="email" name="email" autofocus>
+                <input type="text" class="form-control" placeholder="email" name="email" autofocus>
               
                 <?php echo form_error('email','<span class="help-block">','</span>'); ?>
             </div>
