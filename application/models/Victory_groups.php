@@ -65,7 +65,7 @@ class Victory_groups extends CI_Controller {
             $insert = $this->victory_group->insert($userData);
             
             if($insert){
-                //$this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
+                $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
                 if($no_of_intern==1){
                     redirect(base_url('interns/add/'.$member_id.'/'.$insert));
                 }else{

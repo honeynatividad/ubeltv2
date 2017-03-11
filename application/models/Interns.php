@@ -67,7 +67,7 @@ class Interns extends CI_Controller {
             $insert = $this->intern->insert($userData);
             $another_intern = strip_tags($this->input->post('do_you_have_another_intern'));
             if($insert){
-                //$this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
+                $this->session->set_userdata('success_msg', 'Your registration was successfully. Please login to your account.');
                 if($another_intern=="Yes"){                    
                     redirect(base_url('interns/add/'.$member_id."/".$victory_group_id));
                 }else{                    
@@ -117,7 +117,7 @@ class Interns extends CI_Controller {
             //$no_of_intern = strip_tags($this->input->post('do_you_have_intern'));
             $update = $this->intern->updateIntern($intern_id,$userData);
             
-            //$this->session->set_userdata('success_msg', 'You successfully updated intern profile.');
+            $this->session->set_userdata('success_msg', 'You successfully updated intern profile.');
             redirect(base_url('members/view/'.$member_id));
         }
         $interns = $this->intern->getRows(array('intern_id'=>$id));

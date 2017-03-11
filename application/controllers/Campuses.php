@@ -123,4 +123,20 @@ class Campuses extends CI_Controller {
             }
         }
     }
+    
+    function delete($id){
+        $session_data = $this->session->userdata('logged_in');
+        if(!$session_data){
+            redirect(base_url("users/login"));
+        }
+        $delete = $this->campus->delete($id);
+        if($delete){
+                          
+            redirect(base_url('campuses/all'));            
+        }else{
+            $this->session->set_userdata('success_msg', 'Error occur.');                
+            redirect(base_url('campuses/all'));            
+        }
+            
+    }
 }

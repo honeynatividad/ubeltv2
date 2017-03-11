@@ -10,7 +10,16 @@
 		</ol>
             </div>
 	</div>
-              
+        <div class="row">
+            <div class="col-lg-12">
+                <?php if($this->session->success_msg): ?>
+                <div class="alert alert-success fade in">
+                    <p><?php echo $this->session->success_msg ?></p>
+                </div>
+                
+                <?php endif; ?>
+            </div>
+        </div>         
         <div class="row">
             <div class="col-lg-12">
                 <section class="panel">
@@ -46,3 +55,4 @@
         </div>
     </section>
 </section>
+<?php unset($_SESSION['success_msg']); ?>

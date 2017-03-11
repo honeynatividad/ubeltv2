@@ -51,7 +51,7 @@
        });
        
        $('.datepicker2').datepicker({
-            format: "dd/mm/yyyy",
+            format: "mm/dd/yyyy",
             autoclose: true,
        }).on('changeDate', function (ev) {
             $(this).datepicker('hide');

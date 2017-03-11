@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Campus extends CI_Model{
+class Victory_group extends CI_Model{
     function __construct() {
-        $this->userTbl = 'campuses';
+        $this->userTbl = 'victory_groups';
     }
     /*
      * get rows from the users table
@@ -17,9 +17,8 @@ class Campus extends CI_Model{
             }
         }
         
-        if(array_key_exists("id",$params)){
-            $this->db->where('id',$params['id']);
-            $this->db->order_by("name", "asc");
+        if(array_key_exists("victory_group_id",$params)){
+            $this->db->where('victory_group_id',$params['victory_group_id']);
             $query = $this->db->get();
             $result = $query->row_array();
         }else{
@@ -29,7 +28,6 @@ class Campus extends CI_Model{
             }elseif(!array_key_exists("start",$params) && array_key_exists("limit",$params)){
                 $this->db->limit($params['limit']);
             }
-            $this->db->order_by("name", "asc");
             $query = $this->db->get();
             if(array_key_exists("returnType",$params) && $params['returnType'] == 'count'){
                 $result = $query->num_rows();
@@ -67,23 +65,51 @@ class Campus extends CI_Model{
         }
     }
     
-    public function campusSelect(){
-        
-    }
-    
-    public function updateCampus($id,$data){
-        $this->db->where('id', $id);
-        $this->db->update('campuses', $data);
+    public function updateVictoryGroup($id,$data){
+        $this->db->where('victory_group_id', $id);
+        $this->db->update('victory_groups', $data);
         $this->db->close();
         return true;
     }
     
-    public function delete($id){
-               
-        $tables = array('campuses');
-        $this->db->where('id', $id);
-        $this->db->delete($tables);
-        return true;
+    public function campusSelect(){
+        
+    }
+    
+    function getRowsMember($params = array()){
+        $this->db->select('*');
+        $this->db->from($this->userTbl);
+        
+        //fetch data by conditions
+        if(array_key_exists("conditions",$params)){
+            foreach ($params['conditions'] as $key => $value) {
+                $this->db->where($key,$value);
+            }
+        }
+        
+        if(array_key_exists("member_id",$params)){
+            $this->db->where('member_id',$params['member_id']);
+            $query = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            //set start and limit
+            if(array_key_exists("start",$params) && array_key_exists("limit",$params)){
+                $this->db->limit($params['limit'],$params['start']);
+            }elseif(!array_key_exists("start",$params) && array_key_exists("limit",$params)){
+                $this->db->limit($params['limit']);
+            }
+            $query = $this->db->get();
+            if(array_key_exists("returnType",$params) && $params['returnType'] == 'count'){
+                $result = $query->num_rows();
+            }elseif(array_key_exists("returnType",$params) && $params['returnType'] == 'single'){
+                $result = ($query->num_rows() > 0)?$query->row_array():FALSE;
+            }else{
+                $result = ($query->num_rows() > 0)?$query->result_array():FALSE;
+            }
+        }
+
+        //return fetched data
+        return $result;
     }
 
 }
