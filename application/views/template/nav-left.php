@@ -44,7 +44,17 @@
                     <li><a class="" href="<?php echo base_url("/victory_groups/add");?>">Add</a></li>                          
                     <li><a class="" href="<?php echo base_url("/victory_groups/all");?>">List</a></li>
                 </ul>
-            </li>     
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="icon_document_alt"></i>
+                    <span>Reports</span>
+                    <span class="menu-arrow arrow_carrot-right"></span>
+                </a>
+                <ul class="sub">
+                    <li><a class="" href="<?php echo base_url("/reports/index");?>">Download</a></li>
+                </ul>
+            </li>    
                 
             
             <?php endif; ?>

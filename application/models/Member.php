@@ -23,7 +23,7 @@ class Member extends CI_Model{
             $query = $this->db->get();
             $result = $query->row_array();
         }else{
-            print_r("TEST");
+            
             //set start and limit
             if(array_key_exists("start",$params) && array_key_exists("limit",$params)){
                 $this->db->limit($params['limit'],$params['start']);
