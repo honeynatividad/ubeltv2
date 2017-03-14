@@ -27,21 +27,21 @@
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-4">First Name <span class="required">*</span></label>
                             <div class="col-lg-8">
-                                <input class="form-control" id="first_name" name="first_name" minlength="3" type="text" value="<?php echo $members['first_name'] ?>" required />
+                                <input class="form-control" id="first_name" name="first_name" minlength="2" type="text" value="<?php echo $members['first_name'] ?>" required />
                             </div>
                         </div>
                         <div id="checkName">
                             <div class="form-group ">
                                 <label for="cname" class="control-label col-lg-4">Middle Name <span class="required">*</span></label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" id="middle_name" name="middle_name" minlength="3" type="text" value="<?php echo $members['middle_name'] ?>" required />
+                                    <input class="form-control" id="middle_name" name="middle_name" minlength="2" type="text" value="<?php echo $members['middle_name'] ?>" required />
                                 </div>
                             </div>
 
                             <div class="form-group ">
                                 <label for="cname" class="control-label col-lg-4">Last Name <span class="required">*</span></label>
                                 <div class="col-lg-8">
-                                    <input class="form-control" id="last_name" name="last_name" minlength="3" type="text" value="<?php echo $members['last_name'] ?>" required />
+                                    <input class="form-control" id="last_name" name="last_name" minlength="2" type="text" value="<?php echo $members['last_name'] ?>" required />
                                 </div>
                             </div>
                         </div>

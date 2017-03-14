@@ -20,6 +20,8 @@ class Member extends CI_Model{
         
         if(array_key_exists("member_id",$params)){
             $this->db->where('member_id',$params['member_id']);
+            $this->db->order_by("campus","asc");
+            $this->db->order_by("last_name","asc");
             $query = $this->db->get();
             $result = $query->row_array();
         }else{
@@ -30,6 +32,8 @@ class Member extends CI_Model{
             }elseif(!array_key_exists("start",$params) && array_key_exists("limit",$params)){
                 $this->db->limit($params['limit']);
             }
+            $this->db->order_by("campus","asc");
+            $this->db->order_by("last_name","asc");
             $query = $this->db->get();
             if(array_key_exists("returnType",$params) && $params['returnType'] == 'count'){
                 $result = $query->num_rows();
@@ -77,22 +81,30 @@ class Member extends CI_Model{
     function getRowsMember($params = array()){
         $this->db->select('*');
         $this->db->from($this->userTbl);
+        $this->db->order_by("campus","asc");
+        $this->db->order_by("last_name","asc");
         
         //fetch data by conditions
         if(array_key_exists("conditions",$params)){
             foreach ($params['conditions'] as $key => $value) {
                 $this->db->where($key,$value);
+                $this->db->order_by("campus","asc");
+                $this->db->order_by("last_name","asc");
             }
         }
         
         if(array_key_exists("member_id",$params)){
             $this->db->where('member_id',$params['member_id']);
+            $this->db->order_by("campus","asc");
+            $this->db->order_by("last_name","asc");
             $query = $this->db->get();
             $result = $query->row_array();
         }else{
             
             //set start and limit
             $this->db->where('area',$params['area']);
+            $this->db->order_by("campus","asc");
+            $this->db->order_by("last_name","asc");
             $query = $this->db->get();
             
             
